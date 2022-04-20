@@ -13,12 +13,8 @@
         "packagesPath": "C:\\Users\\BOGDAN\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\BOGDAN\\source\\repos\\comServiceWF\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\BOGDAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -48,9 +44,9 @@
               "target": "Package",
               "version": "[2.3.1, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[5.0.15, )"
+              "version": "[5.0.4, )"
             }
           },
           "imports": [
