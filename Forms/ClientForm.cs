@@ -1,13 +1,8 @@
 ﻿using MaterialSkin.Controls;
 using MaterialSkin;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace comServiceWF
@@ -35,7 +30,7 @@ namespace comServiceWF
             //my orders
             var orders  = myService.Orders.Where(o => o.ClientId == currentClient.Id).ToList();
             foreach (var item in orders)
-                dataGridView1.Rows.Add(item.Id, item.TeamId, currentClient.FullName, item.dateOfWorks, item.Status);
+                dataGridView1.Rows.Add(item.Id, item.TeamId, currentClient.FullName, item.DateOfWorks, item.Status);
             ///about me
             textBoxFirstName.Text = currentClient.FirstName;
             textBoxLastName.Text = currentClient.LastName;
@@ -43,7 +38,6 @@ namespace comServiceWF
             textBoxCity.Text = currentClient.City;
             textBoxFullAdress.Text = currentClient.StreetFull;
             textBoxRegion.Text = currentClient.Region;
-            textBoxPassword.Text = currentClient.Password;
         }
         private bool checkChanges()
         {
@@ -58,8 +52,6 @@ namespace comServiceWF
             if (textBoxFullAdress.Text != currentClient.StreetFull)
                 return false;
             if (textBoxRegion.Text != currentClient.Region)
-                return false;
-            if (textBoxPassword.Text != currentClient.Password)
                 return false;
 
             return true;
@@ -107,7 +99,6 @@ namespace comServiceWF
                     Team team = myService.Teams.First(t => t.status == false);
                     if (team != null)
                     {
-                        //DateTime x = new DateTime(DatePicker.Value.Date,TimePicker.Value.TimeOfDay);
                         myService.Orders.Add(new Order(currentClient.Id, team.Id, DatePicker.Value));
                         team.status = true;
                         myService.SaveChanges();

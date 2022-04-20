@@ -3,6 +3,7 @@ using System;
 
 namespace comServiceWF
 {
+
     public class MyServiceDb : DbContext
     {
         public MyServiceDb() { 
@@ -18,7 +19,8 @@ namespace comServiceWF
                 new MySqlServerVersion(new Version(8, 0, 11))
             );
         }
-        #region FluentAPI
+
+        #region FluentAPI settings
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -29,10 +31,15 @@ namespace comServiceWF
             modelBuilder.Entity<Client>().Property(x => x.FirstName).HasMaxLength(50);
             modelBuilder.Entity<Client>().Property(x => x.LastName).HasMaxLength(50);
             modelBuilder.Entity<Client>().Property(x => x.Phone).HasMaxLength(20);
-            modelBuilder.Entity<Client>().Property(x => x.Password).HasMaxLength(20);
-            modelBuilder.Entity<Client>().Property(x => x.City).HasMaxLength(30);
-            modelBuilder.Entity<Client>().Property(x => x.Region).HasMaxLength(30);
-            modelBuilder.Entity<Client>().Property(x => x.StreetFull).HasMaxLength(150);
+            modelBuilder.Entity<Client>().Property(x => x.City).HasMaxLength(40);
+            modelBuilder.Entity<Client>().Property(x => x.Region).HasMaxLength(40);
+            modelBuilder.Entity<Client>().Property(x => x.StreetFull).HasMaxLength(140);
+            //Credentials
+            modelBuilder.Entity<Credential>().HasKey(c => c.ClientId);
+            modelBuilder.Entity<Credential>().HasOne(c => c.Client).WithOne(x => x.Credential).
+                HasForeignKey<Credential>(c => c.ClientId);
+            modelBuilder.Entity<Credential>().Property(c => c.Password).IsRequired().HasMaxLength(20);
+            modelBuilder.Entity<Credential>().Property(c => c.Password).IsRequired().HasMaxLength(20);
             //order
             modelBuilder.Entity<Order>().HasKey(o => o.Id);
             //team
@@ -48,11 +55,13 @@ namespace comServiceWF
             
         }
         #endregion
+
         #region database collection
         public virtual DbSet<Worker> Workers { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<Credential> Credentials { get; set; }
         #endregion
 
     }

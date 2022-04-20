@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-
 //materialskin2
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -11,10 +10,8 @@ namespace comServiceWF
     public partial class AuthForm : MaterialForm
     {
         MyServiceDb myServiceDb = new MyServiceDb();
-        public AuthForm()
+        void InitializeMaterial()
         {
-            InitializeComponent();
-            //materialskin2
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
@@ -25,62 +22,64 @@ namespace comServiceWF
                 TextShade.WHITE
                 );
         }
+        public AuthForm()
+        {
+            InitializeComponent();
+            InitializeMaterial();
+
+        }
         void hidePanels(int u)
         {
             switch (u)
             {
                 case 1:
-                    panelNewClient.Visible = false;
+                    AuthPanel.Visible = true;
+                    SignUpPanel.Visible = false;
+                    SignUpPanel2.Visible = false;
                     break;
                 case 2:
-                    panelNewClient.Visible = true;
+                    AuthPanel.Visible = true;
+                    SignUpPanel.Visible = true;
+                    SignUpPanel2.Visible = false;
+                    break;
+                case 3:
+                    AuthPanel.Visible = true;
+                    SignUpPanel.Visible = true;
+                    SignUpPanel2.Visible = true;
                     break;
                 default:
                     break;
             }
         }
 
-        private void materialButton3_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure all data is correct?", "Confirmation of registration", 
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                myServiceDb.Clients.Add(new Client(textBoxFirstName.Text, textBoxLastName.Text, textBoxPhone.Text,
-                    textBoxFirstCity.Text, textBoxFullAdress.Text, textBoxRegion.Text, textBoxPassword.Text));
-                myServiceDb.SaveChanges();
-                hidePanels(1);
-            }
-        }
-
-
         public void Form1_Load(object sender, EventArgs e)
         {
             hidePanels(1);
+            BoxAuthPhone.Text = "dtick0";
+            BoxAuthPass.Text = "rlQGiz9l";
 
-            textBoxAuthPhone.Text = "4891130043";
-            textBoxAuthPass.Text = "cm3YVkwdt";
         }
 
-        private void materialButton2_Click(object sender, EventArgs e)
+        private void buttonSignUp_Click(object sender, EventArgs e)
         {
             hidePanels(2);
         }
 
-        private void materialButton1_Click(object sender, EventArgs e)
+        private void buttonSignIn_Click(object sender, EventArgs e)
         {
-            if (textBoxAuthPhone.Text != "admin" && textBoxAuthPass.Text != "")
+            if (BoxAuthPhone.Text != "admin" && BoxAuthPass.Text != "")
             {
                 try
                 {
-                    Client cl = myServiceDb.Clients.First(c => c.Phone == textBoxAuthPhone.Text);
-                    if (cl != null)
-                        if (textBoxAuthPass.Text == cl.Password)
-                        {
-                            this.Hide();
-                            ClientForm clientForm = new ClientForm(myServiceDb, cl);
-                            clientForm.Closed += (s, args) => this.Close();
-                            clientForm.ShowDialog();
-                        }
+                    Credential cr = myServiceDb.Credentials.First(c => c.Login == BoxAuthPhone.Text);
+                    if (cr != null && cr.Password == BoxAuthPass.Text)
+                    {
+                        Client cl = myServiceDb.Clients.First(c => c.Id == cr.ClientId);
+                        this.Hide();
+                        ClientForm clientForm = new ClientForm(myServiceDb, cl);
+                        clientForm.Closed += (s, args) => this.Close();
+                        clientForm.ShowDialog();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -91,13 +90,45 @@ namespace comServiceWF
             {
                 MessageBox.Show("Admin form in development!");
             }
-            
-                
+
         }
 
-        private void BackButton_Click(object sender, EventArgs e)
+
+        private void NoPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            hidePanels(1);
+            MaterialMessageBox.Show("Please contact support!");
         }
+
+        private void buttonRes1_Click(object sender, EventArgs e)
+        {
+            if (BoxPass1.Text != BoxPass2.Text)
+            {
+                MaterialMessageBox.Show("Passwords do not match!");
+            }
+            else
+            {
+                hidePanels(3);
+            }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure all data is correct?", "Confirmation of registration",
+                           MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                myServiceDb.Clients.Add(new Client(FirstNameBox.Text, LastNameBox.Text,
+                    PhoneBox.Text, cityBox.Text, addressBox.Text, regionBox.Text));
+                myServiceDb.Credentials.Add(new Credential(LoginBox.Text, BoxPass1.Text));
+                myServiceDb.SaveChanges();
+                MaterialMessageBox.Show("New registration successful!");
+                hidePanels(1);
+            }
+            else
+            {
+                hidePanels(1);
+            }
+        }
+
+
     }
 }

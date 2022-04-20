@@ -9,15 +9,14 @@ namespace comServiceWF
         public string Region { get; set; }
         public string City { get; set; }
         public string StreetFull { get; set; }
-        public string Password { get; set; }
         //navigation---------
         public virtual ICollection<Order> Orders { get; set; }
+        public virtual Credential Credential { get; set; }
         //constructors
         public Client() { }
-        public Client(string firstName, string lastName, string phone, string city, string street, string region, string pass)
+        public Client(string firstName, string lastName, string phone, string city, string street, string region)
             : base(firstName, lastName, phone)
         {
-            this.Password = pass;
             this.Region = region;
             this.City = city;
             this.StreetFull = street;

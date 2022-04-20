@@ -10,7 +10,8 @@ namespace comServiceWF
         public int? TeamId { get; set; }
         public virtual Client Client { get; set; }
         public virtual Team? Team { get; set; }
-        public DateTime dateOfWorks { get; set; }
+        public DateTime DateOfWorks { get; set; }
+        public DateTime DataCreate { get; set; }
         public bool status { get; set; }
         public string Status { get => status ? "accepted" : "rejected"; }
         public void changeStatus()
@@ -19,13 +20,14 @@ namespace comServiceWF
         }
         public Order()
         {
-            status = true;
+            this.changeStatus();
         }
-        public Order(int clientId, int teamId, DateTime dateTime) : this()
+        public Order(int clientId, int teamId, DateTime dateTime)
         {
             this.ClientId = clientId;
             this.TeamId = teamId;
-            this.dateOfWorks = dateTime;
+            this.DateOfWorks = dateTime;
+            this.DataCreate = DateTime.Now;
         }
 
     }
