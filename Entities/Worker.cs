@@ -2,7 +2,6 @@
 
 namespace comServiceWF
 {
-    //one to many(One team has many workers)
     public class Worker : Person
     {
         public int salary;
@@ -16,18 +15,19 @@ namespace comServiceWF
                 else salary = 6000;
             }
         }
+        //delegates
+        public void updateSalary(int salary) => this.Salary = salary;
+        public void updateTeamId(int teamId) => this.TeamId = teamId;
+        ///navigation prop
         public int TeamId { get; set; }
         public virtual Team Team { get; set; }
+        ///navigation prop end
         public Worker() { }
         public Worker(string firstName, string lastName, string phone, int salary, int teamId)
             : base(firstName, lastName, phone)
         {
             TeamId = teamId;
             Salary = salary;
-        }
-        public void updateSalary(int s)
-        {
-            Salary = s;
         }
         public override void Show()
         {

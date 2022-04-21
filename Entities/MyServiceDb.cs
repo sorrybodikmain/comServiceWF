@@ -27,6 +27,7 @@ namespace comServiceWF
             
             //client
             modelBuilder.Entity<Client>().HasKey(x => x.Id);
+            modelBuilder.Entity<Client>().HasAlternateKey(x=>x.Phone);
             modelBuilder.Entity<Client>().Ignore(x => x.FullName);
             modelBuilder.Entity<Client>().Property(x => x.FirstName).HasMaxLength(50);
             modelBuilder.Entity<Client>().Property(x => x.LastName).HasMaxLength(50);
@@ -36,12 +37,14 @@ namespace comServiceWF
             modelBuilder.Entity<Client>().Property(x => x.StreetFull).HasMaxLength(140);
             //Credentials
             modelBuilder.Entity<Credential>().HasKey(c => c.ClientId);
+            modelBuilder.Entity<Credential>().HasAlternateKey(c => c.Login);
             modelBuilder.Entity<Credential>().HasOne(c => c.Client).WithOne(x => x.Credential).
                 HasForeignKey<Credential>(c => c.ClientId);
-            modelBuilder.Entity<Credential>().Property(c => c.Password).IsRequired().HasMaxLength(20);
+            modelBuilder.Entity<Credential>().Property(c => c.Login).IsRequired().HasMaxLength(20);
             modelBuilder.Entity<Credential>().Property(c => c.Password).IsRequired().HasMaxLength(20);
             //order
             modelBuilder.Entity<Order>().HasKey(o => o.Id);
+            modelBuilder.Entity<Order>().Property(o=>o.TypeOfWork).HasMaxLength(20);
             //team
             modelBuilder.Entity<Team>().HasKey(t => t.Id);
             modelBuilder.Entity<Team>().Ignore(w => w.Status);

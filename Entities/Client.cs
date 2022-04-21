@@ -10,8 +10,10 @@ namespace comServiceWF
         public string City { get; set; }
         public string StreetFull { get; set; }
         //navigation---------
+        #region navigation props
         public virtual ICollection<Order> Orders { get; set; }
         public virtual Credential Credential { get; set; }
+        #endregion
         //constructors
         public Client() { }
         public Client(string firstName, string lastName, string phone, string city, string street, string region)

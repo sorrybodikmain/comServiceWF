@@ -39,7 +39,7 @@
             this.buttonSignUp = new MaterialSkin.Controls.MaterialButton();
             this.NoPass = new System.Windows.Forms.LinkLabel();
             this.buttonSignIn = new MaterialSkin.Controls.MaterialButton();
-            this.BoxAuthPhone = new MaterialSkin.Controls.MaterialTextBox2();
+            this.BoxAuthLogin = new MaterialSkin.Controls.MaterialTextBox2();
             this.BoxAuthPass = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.buttonRes1 = new MaterialSkin.Controls.MaterialButton();
             this.SignUpPanel2 = new System.Windows.Forms.Panel();
@@ -63,7 +63,7 @@
             this.AuthPanel.Controls.Add(this.buttonSignUp);
             this.AuthPanel.Controls.Add(this.NoPass);
             this.AuthPanel.Controls.Add(this.buttonSignIn);
-            this.AuthPanel.Controls.Add(this.BoxAuthPhone);
+            this.AuthPanel.Controls.Add(this.BoxAuthLogin);
             this.AuthPanel.Controls.Add(this.BoxAuthPass);
             this.AuthPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AuthPanel.Location = new System.Drawing.Point(3, 24);
@@ -275,34 +275,34 @@
             this.buttonSignIn.UseVisualStyleBackColor = true;
             this.buttonSignIn.Click += new System.EventHandler(this.buttonSignIn_Click);
             // 
-            // BoxAuthPhone
+            // BoxAuthLogin
             // 
-            this.BoxAuthPhone.AnimateReadOnly = false;
-            this.BoxAuthPhone.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BoxAuthPhone.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.BoxAuthPhone.Depth = 0;
-            this.BoxAuthPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.BoxAuthPhone.HideSelection = true;
-            this.BoxAuthPhone.Hint = "Enter your username";
-            this.BoxAuthPhone.LeadingIcon = null;
-            this.BoxAuthPhone.Location = new System.Drawing.Point(33, 194);
-            this.BoxAuthPhone.MaxLength = 32767;
-            this.BoxAuthPhone.MouseState = MaterialSkin.MouseState.OUT;
-            this.BoxAuthPhone.Name = "BoxAuthPhone";
-            this.BoxAuthPhone.PasswordChar = '\0';
-            this.BoxAuthPhone.PrefixSuffixText = null;
-            this.BoxAuthPhone.ReadOnly = false;
-            this.BoxAuthPhone.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BoxAuthPhone.SelectedText = "";
-            this.BoxAuthPhone.SelectionLength = 0;
-            this.BoxAuthPhone.SelectionStart = 0;
-            this.BoxAuthPhone.ShortcutsEnabled = true;
-            this.BoxAuthPhone.Size = new System.Drawing.Size(250, 48);
-            this.BoxAuthPhone.TabIndex = 2;
-            this.BoxAuthPhone.TabStop = false;
-            this.BoxAuthPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BoxAuthPhone.TrailingIcon = null;
-            this.BoxAuthPhone.UseSystemPasswordChar = false;
+            this.BoxAuthLogin.AnimateReadOnly = false;
+            this.BoxAuthLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BoxAuthLogin.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.BoxAuthLogin.Depth = 0;
+            this.BoxAuthLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.BoxAuthLogin.HideSelection = true;
+            this.BoxAuthLogin.Hint = "Enter your username";
+            this.BoxAuthLogin.LeadingIcon = null;
+            this.BoxAuthLogin.Location = new System.Drawing.Point(33, 194);
+            this.BoxAuthLogin.MaxLength = 32767;
+            this.BoxAuthLogin.MouseState = MaterialSkin.MouseState.OUT;
+            this.BoxAuthLogin.Name = "BoxAuthLogin";
+            this.BoxAuthLogin.PasswordChar = '\0';
+            this.BoxAuthLogin.PrefixSuffixText = null;
+            this.BoxAuthLogin.ReadOnly = false;
+            this.BoxAuthLogin.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.BoxAuthLogin.SelectedText = "";
+            this.BoxAuthLogin.SelectionLength = 0;
+            this.BoxAuthLogin.SelectionStart = 0;
+            this.BoxAuthLogin.ShortcutsEnabled = true;
+            this.BoxAuthLogin.Size = new System.Drawing.Size(250, 48);
+            this.BoxAuthLogin.TabIndex = 2;
+            this.BoxAuthLogin.TabStop = false;
+            this.BoxAuthLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BoxAuthLogin.TrailingIcon = null;
+            this.BoxAuthLogin.UseSystemPasswordChar = false;
             // 
             // BoxAuthPass
             // 
@@ -529,7 +529,7 @@
 
         private System.Windows.Forms.Panel AuthPanel;
         private MaterialSkin.Controls.MaterialButton buttonSignIn;
-        private MaterialSkin.Controls.MaterialTextBox2 BoxAuthPhone;
+        private MaterialSkin.Controls.MaterialTextBox2 BoxAuthLogin;
         private MaterialSkin.Controls.MaterialMaskedTextBox BoxAuthPass;
         private MaterialSkin.Controls.MaterialButton buttonSignUp;
         private System.Windows.Forms.LinkLabel NoPass;

@@ -32,21 +32,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientForm));
             this.TabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.CreateOrders = new System.Windows.Forms.TabPage();
+            this.typeComboBox = new MaterialSkin.Controls.MaterialComboBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.DatePicker = new System.Windows.Forms.DateTimePicker();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.Orders = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.OrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordersGridView = new System.Windows.Forms.DataGridView();
+            this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeOfWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateOfWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toComplete = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InfoEdit = new System.Windows.Forms.TabPage();
+            this.loginBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonSaveChanges = new MaterialSkin.Controls.MaterialButton();
-            this.textBoxPassword = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.textBoxRegion = new MaterialSkin.Controls.MaterialTextBox2();
             this.textBoxCity = new MaterialSkin.Controls.MaterialTextBox2();
@@ -57,12 +60,22 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.textBoxLastName = new MaterialSkin.Controls.MaterialTextBox2();
             this.textBoxFirstName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.changePass = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.materialCheckbox1 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.materialCheckbox2 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.materialCheckbox3 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.passBox1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.passBox2 = new MaterialSkin.Controls.MaterialTextBox();
+            this.passBox3 = new MaterialSkin.Controls.MaterialTextBox();
+            this.passConfButton = new MaterialSkin.Controls.MaterialButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.CreateOrders.SuspendLayout();
             this.Orders.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersGridView)).BeginInit();
             this.InfoEdit.SuspendLayout();
+            this.changePass.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl
@@ -70,6 +83,7 @@
             this.TabControl.Controls.Add(this.CreateOrders);
             this.TabControl.Controls.Add(this.Orders);
             this.TabControl.Controls.Add(this.InfoEdit);
+            this.TabControl.Controls.Add(this.changePass);
             this.TabControl.Depth = 0;
             this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControl.ImageList = this.imageList1;
@@ -85,6 +99,7 @@
             // 
             this.CreateOrders.BackColor = System.Drawing.Color.White;
             this.CreateOrders.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CreateOrders.BackgroundImage")));
+            this.CreateOrders.Controls.Add(this.typeComboBox);
             this.CreateOrders.Controls.Add(this.materialButton1);
             this.CreateOrders.Controls.Add(this.DatePicker);
             this.CreateOrders.Controls.Add(this.materialLabel7);
@@ -95,22 +110,50 @@
             this.CreateOrders.TabIndex = 2;
             this.CreateOrders.Text = "Create order";
             // 
+            // typeComboBox
+            // 
+            this.typeComboBox.AutoResize = false;
+            this.typeComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.typeComboBox.Depth = 0;
+            this.typeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.typeComboBox.DropDownHeight = 174;
+            this.typeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.typeComboBox.DropDownWidth = 121;
+            this.typeComboBox.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.typeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.typeComboBox.FormattingEnabled = true;
+            this.typeComboBox.IntegralHeight = false;
+            this.typeComboBox.ItemHeight = 43;
+            this.typeComboBox.Items.AddRange(new object[] {
+            "Restoration",
+            "Repair",
+            "Construction",
+            "Assistance"});
+            this.typeComboBox.Location = new System.Drawing.Point(500, 210);
+            this.typeComboBox.MaxDropDownItems = 4;
+            this.typeComboBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.typeComboBox.Name = "typeComboBox";
+            this.typeComboBox.Size = new System.Drawing.Size(260, 49);
+            this.typeComboBox.StartIndex = 0;
+            this.typeComboBox.TabIndex = 3;
+            // 
             // materialButton1
             // 
+            this.materialButton1.AutoSize = false;
             this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(577, 175);
+            this.materialButton1.Location = new System.Drawing.Point(500, 268);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
             this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(127, 36);
+            this.materialButton1.Size = new System.Drawing.Size(260, 36);
             this.materialButton1.TabIndex = 2;
-            this.materialButton1.Text = "Confirm date";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.Text = "Confirm";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
             this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
@@ -121,11 +164,11 @@
             this.DatePicker.CustomFormat = "";
             this.DatePicker.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DatePicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DatePicker.Location = new System.Drawing.Point(460, 126);
+            this.DatePicker.Location = new System.Drawing.Point(500, 177);
             this.DatePicker.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
             this.DatePicker.MinDate = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
             this.DatePicker.Name = "DatePicker";
-            this.DatePicker.Size = new System.Drawing.Size(244, 27);
+            this.DatePicker.Size = new System.Drawing.Size(260, 27);
             this.DatePicker.TabIndex = 1;
             // 
             // materialLabel7
@@ -135,7 +178,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel7.Location = new System.Drawing.Point(444, 73);
+            this.materialLabel7.Location = new System.Drawing.Point(500, 124);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(260, 41);
@@ -145,7 +188,7 @@
             // Orders
             // 
             this.Orders.BackColor = System.Drawing.Color.White;
-            this.Orders.Controls.Add(this.dataGridView1);
+            this.Orders.Controls.Add(this.ordersGridView);
             this.Orders.ImageKey = "table-account.png";
             this.Orders.Location = new System.Drawing.Point(4, 24);
             this.Orders.Name = "Orders";
@@ -154,58 +197,71 @@
             this.Orders.TabIndex = 0;
             this.Orders.Text = "Current orders";
             // 
-            // dataGridView1
+            // ordersGridView
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.OrderID,
-            this.TeamId,
-            this.FullName,
-            this.Date,
-            this.Status});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.Desktop;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(780, 389);
-            this.dataGridView1.TabIndex = 0;
+            this.ordersGridView.BackgroundColor = System.Drawing.Color.White;
+            this.ordersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ordersGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.OrderId,
+            this.fullName,
+            this.typeOfWork,
+            this.status,
+            this.dateOfWork,
+            this.createDate,
+            this.toComplete});
+            this.ordersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ordersGridView.Location = new System.Drawing.Point(3, 3);
+            this.ordersGridView.Name = "ordersGridView";
+            this.ordersGridView.RowTemplate.Height = 25;
+            this.ordersGridView.Size = new System.Drawing.Size(780, 389);
+            this.ordersGridView.TabIndex = 0;
             // 
-            // OrderID
+            // OrderId
             // 
-            this.OrderID.HeaderText = "OrderId";
-            this.OrderID.Name = "OrderID";
+            this.OrderId.HeaderText = "ID";
+            this.OrderId.Name = "OrderId";
+            this.OrderId.Width = 50;
             // 
-            // TeamId
+            // fullName
             // 
-            this.TeamId.HeaderText = "TeamId";
-            this.TeamId.Name = "TeamId";
+            this.fullName.HeaderText = "Full Name";
+            this.fullName.Name = "fullName";
+            this.fullName.Width = 150;
             // 
-            // FullName
+            // typeOfWork
             // 
-            this.FullName.HeaderText = "Full Name";
-            this.FullName.Name = "FullName";
-            this.FullName.Width = 180;
+            this.typeOfWork.HeaderText = "Type";
+            this.typeOfWork.Name = "typeOfWork";
             // 
-            // Date
+            // status
             // 
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.Width = 200;
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
             // 
-            // Status
+            // dateOfWork
             // 
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
+            this.dateOfWork.HeaderText = "Date Of Work";
+            this.dateOfWork.Name = "dateOfWork";
+            this.dateOfWork.Width = 120;
+            // 
+            // createDate
+            // 
+            this.createDate.HeaderText = "Create Date";
+            this.createDate.Name = "createDate";
+            // 
+            // toComplete
+            // 
+            this.toComplete.HeaderText = "To Complete";
+            this.toComplete.Name = "toComplete";
+            this.toComplete.Width = 115;
             // 
             // InfoEdit
             // 
             this.InfoEdit.BackColor = System.Drawing.Color.White;
+            this.InfoEdit.Controls.Add(this.loginBox);
             this.InfoEdit.Controls.Add(this.materialLabel6);
             this.InfoEdit.Controls.Add(this.materialLabel5);
             this.InfoEdit.Controls.Add(this.buttonSaveChanges);
-            this.InfoEdit.Controls.Add(this.textBoxPassword);
             this.InfoEdit.Controls.Add(this.materialLabel4);
             this.InfoEdit.Controls.Add(this.textBoxRegion);
             this.InfoEdit.Controls.Add(this.textBoxCity);
@@ -223,6 +279,35 @@
             this.InfoEdit.Size = new System.Drawing.Size(786, 395);
             this.InfoEdit.TabIndex = 1;
             this.InfoEdit.Text = "About me";
+            // 
+            // loginBox
+            // 
+            this.loginBox.AnimateReadOnly = false;
+            this.loginBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.loginBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.loginBox.Depth = 0;
+            this.loginBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.loginBox.HideSelection = true;
+            this.loginBox.Hint = "Login";
+            this.loginBox.LeadingIcon = null;
+            this.loginBox.Location = new System.Drawing.Point(22, 281);
+            this.loginBox.MaxLength = 32767;
+            this.loginBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.loginBox.Name = "loginBox";
+            this.loginBox.PasswordChar = '\0';
+            this.loginBox.PrefixSuffixText = null;
+            this.loginBox.ReadOnly = false;
+            this.loginBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.loginBox.SelectedText = "";
+            this.loginBox.SelectionLength = 0;
+            this.loginBox.SelectionStart = 0;
+            this.loginBox.ShortcutsEnabled = true;
+            this.loginBox.Size = new System.Drawing.Size(212, 48);
+            this.loginBox.TabIndex = 29;
+            this.loginBox.TabStop = false;
+            this.loginBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.loginBox.TrailingIcon = null;
+            this.loginBox.UseSystemPasswordChar = false;
             // 
             // materialLabel6
             // 
@@ -271,35 +356,6 @@
             this.buttonSaveChanges.UseVisualStyleBackColor = true;
             this.buttonSaveChanges.Click += new System.EventHandler(this.buttonSaveChanges_Click);
             // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.AnimateReadOnly = false;
-            this.textBoxPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.textBoxPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.textBoxPassword.Depth = 0;
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxPassword.HideSelection = true;
-            this.textBoxPassword.Hint = "Password";
-            this.textBoxPassword.LeadingIcon = null;
-            this.textBoxPassword.Location = new System.Drawing.Point(289, 283);
-            this.textBoxPassword.MaxLength = 32767;
-            this.textBoxPassword.MouseState = MaterialSkin.MouseState.OUT;
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.PasswordChar = '\0';
-            this.textBoxPassword.PrefixSuffixText = null;
-            this.textBoxPassword.ReadOnly = false;
-            this.textBoxPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxPassword.SelectedText = "";
-            this.textBoxPassword.SelectionLength = 0;
-            this.textBoxPassword.SelectionStart = 0;
-            this.textBoxPassword.ShortcutsEnabled = true;
-            this.textBoxPassword.Size = new System.Drawing.Size(426, 48);
-            this.textBoxPassword.TabIndex = 25;
-            this.textBoxPassword.TabStop = false;
-            this.textBoxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textBoxPassword.TrailingIcon = null;
-            this.textBoxPassword.UseSystemPasswordChar = false;
-            // 
             // materialLabel4
             // 
             this.materialLabel4.AutoSize = true;
@@ -307,12 +363,12 @@
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialLabel4.Location = new System.Drawing.Point(289, 245);
+            this.materialLabel4.Location = new System.Drawing.Point(22, 241);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(82, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(52, 19);
             this.materialLabel4.TabIndex = 24;
-            this.materialLabel4.Text = "Password *";
+            this.materialLabel4.Text = "Login *";
             // 
             // textBoxRegion
             // 
@@ -425,7 +481,7 @@
             this.textBoxPhone.HideSelection = true;
             this.textBoxPhone.Hint = "(***)***-****";
             this.textBoxPhone.LeadingIcon = null;
-            this.textBoxPhone.Location = new System.Drawing.Point(21, 283);
+            this.textBoxPhone.Location = new System.Drawing.Point(288, 281);
             this.textBoxPhone.MaxLength = 32767;
             this.textBoxPhone.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxPhone.Name = "textBoxPhone";
@@ -437,7 +493,7 @@
             this.textBoxPhone.SelectionLength = 0;
             this.textBoxPhone.SelectionStart = 0;
             this.textBoxPhone.ShortcutsEnabled = true;
-            this.textBoxPhone.Size = new System.Drawing.Size(212, 48);
+            this.textBoxPhone.Size = new System.Drawing.Size(426, 48);
             this.textBoxPhone.TabIndex = 19;
             this.textBoxPhone.TabStop = false;
             this.textBoxPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -451,7 +507,7 @@
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialLabel2.Location = new System.Drawing.Point(22, 245);
+            this.materialLabel2.Location = new System.Drawing.Point(288, 241);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(117, 19);
@@ -530,6 +586,21 @@
             this.textBoxFirstName.TrailingIcon = null;
             this.textBoxFirstName.UseSystemPasswordChar = false;
             // 
+            // changePass
+            // 
+            this.changePass.BackColor = System.Drawing.Color.White;
+            this.changePass.Controls.Add(this.label1);
+            this.changePass.Controls.Add(this.passConfButton);
+            this.changePass.Controls.Add(this.passBox3);
+            this.changePass.Controls.Add(this.passBox2);
+            this.changePass.Controls.Add(this.passBox1);
+            this.changePass.ImageKey = "lockIcon.png";
+            this.changePass.Location = new System.Drawing.Point(4, 24);
+            this.changePass.Name = "changePass";
+            this.changePass.Size = new System.Drawing.Size(786, 395);
+            this.changePass.TabIndex = 3;
+            this.changePass.Text = "Change Password";
+            // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
@@ -538,6 +609,141 @@
             this.imageList1.Images.SetKeyName(0, "account (1).png");
             this.imageList1.Images.SetKeyName(1, "table-account.png");
             this.imageList1.Images.SetKeyName(2, "plus-box.png");
+            this.imageList1.Images.SetKeyName(3, "lockIcon.png");
+            // 
+            // materialCheckbox1
+            // 
+            this.materialCheckbox1.AutoSize = true;
+            this.materialCheckbox1.Depth = 0;
+            this.materialCheckbox1.Location = new System.Drawing.Point(0, 0);
+            this.materialCheckbox1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckbox1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckbox1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCheckbox1.Name = "materialCheckbox1";
+            this.materialCheckbox1.ReadOnly = false;
+            this.materialCheckbox1.Ripple = true;
+            this.materialCheckbox1.Size = new System.Drawing.Size(10, 10);
+            this.materialCheckbox1.TabIndex = 0;
+            this.materialCheckbox1.Text = "materialCheckbox1";
+            this.materialCheckbox1.UseVisualStyleBackColor = true;
+            // 
+            // materialCheckbox2
+            // 
+            this.materialCheckbox2.AutoSize = true;
+            this.materialCheckbox2.Depth = 0;
+            this.materialCheckbox2.Location = new System.Drawing.Point(0, 0);
+            this.materialCheckbox2.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckbox2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckbox2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCheckbox2.Name = "materialCheckbox2";
+            this.materialCheckbox2.ReadOnly = false;
+            this.materialCheckbox2.Ripple = true;
+            this.materialCheckbox2.Size = new System.Drawing.Size(10, 10);
+            this.materialCheckbox2.TabIndex = 0;
+            this.materialCheckbox2.Text = "materialCheckbox2";
+            this.materialCheckbox2.UseVisualStyleBackColor = true;
+            // 
+            // materialCheckbox3
+            // 
+            this.materialCheckbox3.AutoSize = true;
+            this.materialCheckbox3.Depth = 0;
+            this.materialCheckbox3.Location = new System.Drawing.Point(0, 0);
+            this.materialCheckbox3.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckbox3.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckbox3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCheckbox3.Name = "materialCheckbox3";
+            this.materialCheckbox3.ReadOnly = false;
+            this.materialCheckbox3.Ripple = true;
+            this.materialCheckbox3.Size = new System.Drawing.Size(10, 10);
+            this.materialCheckbox3.TabIndex = 0;
+            this.materialCheckbox3.Text = "materialCheckbox3";
+            this.materialCheckbox3.UseVisualStyleBackColor = true;
+            // 
+            // passBox1
+            // 
+            this.passBox1.AnimateReadOnly = false;
+            this.passBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passBox1.Depth = 0;
+            this.passBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.passBox1.Hint = "Enter current password";
+            this.passBox1.LeadingIcon = null;
+            this.passBox1.Location = new System.Drawing.Point(252, 96);
+            this.passBox1.MaxLength = 50;
+            this.passBox1.MouseState = MaterialSkin.MouseState.OUT;
+            this.passBox1.Multiline = false;
+            this.passBox1.Name = "passBox1";
+            this.passBox1.Size = new System.Drawing.Size(219, 50);
+            this.passBox1.TabIndex = 0;
+            this.passBox1.Text = "";
+            this.passBox1.TrailingIcon = null;
+            // 
+            // passBox2
+            // 
+            this.passBox2.AnimateReadOnly = false;
+            this.passBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passBox2.Depth = 0;
+            this.passBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.passBox2.Hint = "Enter new password";
+            this.passBox2.LeadingIcon = null;
+            this.passBox2.Location = new System.Drawing.Point(252, 165);
+            this.passBox2.MaxLength = 50;
+            this.passBox2.MouseState = MaterialSkin.MouseState.OUT;
+            this.passBox2.Multiline = false;
+            this.passBox2.Name = "passBox2";
+            this.passBox2.Size = new System.Drawing.Size(219, 50);
+            this.passBox2.TabIndex = 1;
+            this.passBox2.Text = "";
+            this.passBox2.TrailingIcon = null;
+            // 
+            // passBox3
+            // 
+            this.passBox3.AnimateReadOnly = false;
+            this.passBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passBox3.Depth = 0;
+            this.passBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.passBox3.Hint = "Repeat password";
+            this.passBox3.LeadingIcon = null;
+            this.passBox3.Location = new System.Drawing.Point(252, 238);
+            this.passBox3.MaxLength = 50;
+            this.passBox3.MouseState = MaterialSkin.MouseState.OUT;
+            this.passBox3.Multiline = false;
+            this.passBox3.Name = "passBox3";
+            this.passBox3.Size = new System.Drawing.Size(219, 50);
+            this.passBox3.TabIndex = 2;
+            this.passBox3.Text = "";
+            this.passBox3.TrailingIcon = null;
+            // 
+            // passConfButton
+            // 
+            this.passConfButton.AutoSize = false;
+            this.passConfButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.passConfButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.passConfButton.Depth = 0;
+            this.passConfButton.HighEmphasis = true;
+            this.passConfButton.Icon = null;
+            this.passConfButton.Location = new System.Drawing.Point(252, 307);
+            this.passConfButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.passConfButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.passConfButton.Name = "passConfButton";
+            this.passConfButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.passConfButton.Size = new System.Drawing.Size(219, 36);
+            this.passConfButton.TabIndex = 3;
+            this.passConfButton.Text = "Confirm Password";
+            this.passConfButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.passConfButton.UseAccentColor = false;
+            this.passConfButton.UseVisualStyleBackColor = true;
+            this.passConfButton.Click += new System.EventHandler(this.passConfButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(252, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(218, 33);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Change password:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ClientForm
             // 
@@ -560,9 +766,11 @@
             this.CreateOrders.ResumeLayout(false);
             this.CreateOrders.PerformLayout();
             this.Orders.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersGridView)).EndInit();
             this.InfoEdit.ResumeLayout(false);
             this.InfoEdit.PerformLayout();
+            this.changePass.ResumeLayout(false);
+            this.changePass.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -575,7 +783,6 @@
         private System.Windows.Forms.ImageList imageList1;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialButton buttonSaveChanges;
-        private MaterialSkin.Controls.MaterialTextBox2 textBoxPassword;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialTextBox2 textBoxRegion;
         private MaterialSkin.Controls.MaterialTextBox2 textBoxCity;
@@ -587,15 +794,32 @@
         private MaterialSkin.Controls.MaterialTextBox2 textBoxLastName;
         private MaterialSkin.Controls.MaterialTextBox2 textBoxFirstName;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TeamId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.TabPage CreateOrders;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private System.Windows.Forms.DateTimePicker DatePicker;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox1;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox2;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox3;
+        private MaterialSkin.Controls.MaterialComboBox typeComboBox;
+        private System.Windows.Forms.ColumnHeader orderId;
+        private System.Windows.Forms.ColumnHeader typeOfWorks;
+        private System.Windows.Forms.ColumnHeader dateCreate;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.DataGridView ordersGridView;
+        private System.Windows.Forms.TabPage changePass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeOfWork;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfWork;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn toComplete;
+        private MaterialSkin.Controls.MaterialTextBox2 loginBox;
+        private System.Windows.Forms.Label label1;
+        private MaterialSkin.Controls.MaterialButton passConfButton;
+        private MaterialSkin.Controls.MaterialTextBox passBox3;
+        private MaterialSkin.Controls.MaterialTextBox passBox2;
+        private MaterialSkin.Controls.MaterialTextBox passBox1;
     }
 }

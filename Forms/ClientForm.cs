@@ -11,6 +11,7 @@ namespace comServiceWF
     {
         MyServiceDb myService;
         Client currentClient;
+        Credential credential;
         private void InitializeMaterial()
         {
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
@@ -28,9 +29,10 @@ namespace comServiceWF
         private void PrintInfo()
         {
             //my orders
-            var orders  = myService.Orders.Where(o => o.ClientId == currentClient.Id).ToList();
+            var orders = myService.Orders.Where(o => o.ClientId == currentClient.Id).ToList();
             foreach (var item in orders)
-                dataGridView1.Rows.Add(item.Id, item.TeamId, currentClient.FullName, item.DateOfWorks, item.Status);
+                ordersGridView.Rows.Add(item.Id, currentClient.FullName, item.TypeOfWork, item.Status,
+                    item.DateOfWorks, item.DataCreate, item.toComplate());
             ///about me
             textBoxFirstName.Text = currentClient.FirstName;
             textBoxLastName.Text = currentClient.LastName;
@@ -38,6 +40,7 @@ namespace comServiceWF
             textBoxCity.Text = currentClient.City;
             textBoxFullAdress.Text = currentClient.StreetFull;
             textBoxRegion.Text = currentClient.Region;
+            loginBox.Text = credential.Login;
         }
         private bool checkChanges()
         {
@@ -56,24 +59,31 @@ namespace comServiceWF
 
             return true;
         }
+        private void clearPassBoxes()
+        {
+            passBox1.Text = "";
+            passBox2.Text = "";
+            passBox3.Text = "";
+        }
         public ClientForm()
         {
             currentClient = new Client();
             myService = new MyServiceDb();
+            credential = new Credential();
             InitializeComponent();
         }
-        public ClientForm(MyServiceDb myServiceDb, Client client)
+        public ClientForm(MyServiceDb myServiceDb, Client client, Credential credential)
         {
             InitializeComponent();
             InitializeMaterial();
             this.myService = myServiceDb;
             this.currentClient = client;
-
+            this.credential = credential;
         }
 
         private void buttonSaveChanges_Click(object sender, EventArgs e)
         {
-            if(checkChanges())
+            if (checkChanges())
             {
                 MessageBox.Show("No changes detected!");
             }
@@ -99,10 +109,11 @@ namespace comServiceWF
                     Team team = myService.Teams.First(t => t.status == false);
                     if (team != null)
                     {
-                        myService.Orders.Add(new Order(currentClient.Id, team.Id, DatePicker.Value));
+                        myService.Orders.Add(new Order(currentClient.Id, team.Id, DatePicker.Value,
+                            typeComboBox.SelectedItem.ToString()));
                         team.status = true;
                         myService.SaveChanges();
-                        MessageBox.Show("Everything is saved successfully!");
+                        MaterialMessageBox.Show("Everything is saved successfully!");
                     }
                 }
                 catch (Exception)
@@ -110,6 +121,33 @@ namespace comServiceWF
                     MessageBox.Show("Currently all busy groups try later!");
                     throw;
                 }
+            }
+        }
+
+        private void passConfButton_Click(object sender, EventArgs e)
+        {
+            if(passBox1.Text.Trim() == credential.Password)
+            {
+                if(passBox2.Text.Trim() == credential.Password)
+                {
+                    MaterialMessageBox.Show("The new password cannot be equal to the current one!");
+                } 
+                else if (passBox2.Text.Trim() == passBox3.Text.Trim())
+                {
+                    //save password
+                    myService.Credentials.First(c => c.ClientId == credential.ClientId).Password = passBox2.Text.Trim();
+                    credential.Password = passBox2.Text.Trim();
+                    myService.SaveChanges();
+                    clearPassBoxes();
+                }
+                else
+                {
+                    MaterialMessageBox.Show("New passwords do not match!");
+                }
+            }
+            else
+            {
+                MaterialMessageBox.Show("The current password does not match");
             }
         }
     }
