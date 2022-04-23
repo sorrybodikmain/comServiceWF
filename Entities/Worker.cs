@@ -18,11 +18,11 @@ namespace comServiceWF
         //delegates
         public void updateSalary(int salary) => this.Salary = salary;
         public void updateTeamId(int teamId) => this.TeamId = teamId;
-        ///navigation prop
+        #region navigation prop
         public int TeamId { get; set; }
         public virtual Team Team { get; set; }
-        ///navigation prop end
-        public Worker() { }
+        #endregion
+        public Worker() {}
         public Worker(string firstName, string lastName, string phone, int salary, int teamId)
             : base(firstName, lastName, phone)
         {
