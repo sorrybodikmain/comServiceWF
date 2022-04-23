@@ -61,15 +61,15 @@
             this.textBoxLastName = new MaterialSkin.Controls.MaterialTextBox2();
             this.textBoxFirstName = new MaterialSkin.Controls.MaterialTextBox2();
             this.changePass = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.passConfButton = new MaterialSkin.Controls.MaterialButton();
+            this.passBox3 = new MaterialSkin.Controls.MaterialTextBox();
+            this.passBox2 = new MaterialSkin.Controls.MaterialTextBox();
+            this.passBox1 = new MaterialSkin.Controls.MaterialTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.materialCheckbox1 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox2 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox3 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.passBox1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.passBox2 = new MaterialSkin.Controls.MaterialTextBox();
-            this.passBox3 = new MaterialSkin.Controls.MaterialTextBox();
-            this.passConfButton = new MaterialSkin.Controls.MaterialButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.CreateOrders.SuspendLayout();
             this.Orders.SuspendLayout();
@@ -98,7 +98,6 @@
             // CreateOrders
             // 
             this.CreateOrders.BackColor = System.Drawing.Color.White;
-            this.CreateOrders.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CreateOrders.BackgroundImage")));
             this.CreateOrders.Controls.Add(this.typeComboBox);
             this.CreateOrders.Controls.Add(this.materialButton1);
             this.CreateOrders.Controls.Add(this.DatePicker);
@@ -129,7 +128,7 @@
             "Repair",
             "Construction",
             "Assistance"});
-            this.typeComboBox.Location = new System.Drawing.Point(500, 210);
+            this.typeComboBox.Location = new System.Drawing.Point(276, 183);
             this.typeComboBox.MaxDropDownItems = 4;
             this.typeComboBox.MouseState = MaterialSkin.MouseState.OUT;
             this.typeComboBox.Name = "typeComboBox";
@@ -145,7 +144,7 @@
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(500, 268);
+            this.materialButton1.Location = new System.Drawing.Point(276, 241);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
@@ -164,7 +163,7 @@
             this.DatePicker.CustomFormat = "";
             this.DatePicker.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DatePicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DatePicker.Location = new System.Drawing.Point(500, 177);
+            this.DatePicker.Location = new System.Drawing.Point(276, 150);
             this.DatePicker.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
             this.DatePicker.MinDate = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
             this.DatePicker.Name = "DatePicker";
@@ -178,7 +177,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel7.Location = new System.Drawing.Point(500, 124);
+            this.materialLabel7.Location = new System.Drawing.Point(276, 97);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(260, 41);
@@ -200,7 +199,7 @@
             // ordersGridView
             // 
             this.ordersGridView.BackgroundColor = System.Drawing.Color.White;
-            this.ordersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ordersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.ordersGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrderId,
             this.fullName,
@@ -211,6 +210,7 @@
             this.toComplete});
             this.ordersGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ordersGridView.Location = new System.Drawing.Point(3, 3);
+            this.ordersGridView.Margin = new System.Windows.Forms.Padding(1);
             this.ordersGridView.Name = "ordersGridView";
             this.ordersGridView.RowTemplate.Height = 25;
             this.ordersGridView.Size = new System.Drawing.Size(780, 389);
@@ -226,7 +226,7 @@
             // 
             this.fullName.HeaderText = "Full Name";
             this.fullName.Name = "fullName";
-            this.fullName.Width = 150;
+            this.fullName.Width = 130;
             // 
             // typeOfWork
             // 
@@ -290,7 +290,7 @@
             this.loginBox.HideSelection = true;
             this.loginBox.Hint = "Login";
             this.loginBox.LeadingIcon = null;
-            this.loginBox.Location = new System.Drawing.Point(22, 281);
+            this.loginBox.Location = new System.Drawing.Point(18, 281);
             this.loginBox.MaxLength = 32767;
             this.loginBox.MouseState = MaterialSkin.MouseState.OUT;
             this.loginBox.Name = "loginBox";
@@ -315,7 +315,7 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.materialLabel6.Location = new System.Drawing.Point(510, 3);
+            this.materialLabel6.Location = new System.Drawing.Point(505, 14);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(205, 29);
@@ -329,7 +329,7 @@
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialLabel5.Location = new System.Drawing.Point(22, 357);
+            this.materialLabel5.Location = new System.Drawing.Point(18, 357);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(267, 19);
@@ -343,7 +343,7 @@
             this.buttonSaveChanges.Depth = 0;
             this.buttonSaveChanges.HighEmphasis = true;
             this.buttonSaveChanges.Icon = null;
-            this.buttonSaveChanges.Location = new System.Drawing.Point(586, 340);
+            this.buttonSaveChanges.Location = new System.Drawing.Point(582, 340);
             this.buttonSaveChanges.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonSaveChanges.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonSaveChanges.Name = "buttonSaveChanges";
@@ -363,7 +363,7 @@
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialLabel4.Location = new System.Drawing.Point(22, 241);
+            this.materialLabel4.Location = new System.Drawing.Point(18, 241);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(52, 19);
@@ -380,7 +380,7 @@
             this.textBoxRegion.HideSelection = true;
             this.textBoxRegion.Hint = "Region";
             this.textBoxRegion.LeadingIcon = null;
-            this.textBoxRegion.Location = new System.Drawing.Point(502, 175);
+            this.textBoxRegion.Location = new System.Drawing.Point(498, 175);
             this.textBoxRegion.MaxLength = 32767;
             this.textBoxRegion.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxRegion.Name = "textBoxRegion";
@@ -409,7 +409,7 @@
             this.textBoxCity.HideSelection = true;
             this.textBoxCity.Hint = "City";
             this.textBoxCity.LeadingIcon = null;
-            this.textBoxCity.Location = new System.Drawing.Point(288, 175);
+            this.textBoxCity.Location = new System.Drawing.Point(284, 175);
             this.textBoxCity.MaxLength = 32767;
             this.textBoxCity.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxCity.Name = "textBoxCity";
@@ -438,7 +438,7 @@
             this.textBoxFullAdress.HideSelection = true;
             this.textBoxFullAdress.Hint = "Street Address";
             this.textBoxFullAdress.LeadingIcon = null;
-            this.textBoxFullAdress.Location = new System.Drawing.Point(288, 121);
+            this.textBoxFullAdress.Location = new System.Drawing.Point(284, 121);
             this.textBoxFullAdress.MaxLength = 32767;
             this.textBoxFullAdress.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxFullAdress.Name = "textBoxFullAdress";
@@ -464,7 +464,7 @@
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.materialLabel3.Location = new System.Drawing.Point(288, 80);
+            this.materialLabel3.Location = new System.Drawing.Point(284, 80);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(69, 19);
@@ -481,7 +481,7 @@
             this.textBoxPhone.HideSelection = true;
             this.textBoxPhone.Hint = "(***)***-****";
             this.textBoxPhone.LeadingIcon = null;
-            this.textBoxPhone.Location = new System.Drawing.Point(288, 281);
+            this.textBoxPhone.Location = new System.Drawing.Point(284, 281);
             this.textBoxPhone.MaxLength = 32767;
             this.textBoxPhone.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxPhone.Name = "textBoxPhone";
@@ -507,7 +507,7 @@
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialLabel2.Location = new System.Drawing.Point(288, 241);
+            this.materialLabel2.Location = new System.Drawing.Point(284, 241);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(117, 19);
@@ -521,7 +521,7 @@
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialLabel1.Location = new System.Drawing.Point(22, 80);
+            this.materialLabel1.Location = new System.Drawing.Point(18, 80);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(84, 19);
@@ -538,7 +538,7 @@
             this.textBoxLastName.HideSelection = true;
             this.textBoxLastName.Hint = "Last Name";
             this.textBoxLastName.LeadingIcon = null;
-            this.textBoxLastName.Location = new System.Drawing.Point(21, 175);
+            this.textBoxLastName.Location = new System.Drawing.Point(17, 175);
             this.textBoxLastName.MaxLength = 32767;
             this.textBoxLastName.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxLastName.Name = "textBoxLastName";
@@ -567,7 +567,7 @@
             this.textBoxFirstName.HideSelection = true;
             this.textBoxFirstName.Hint = "First Name";
             this.textBoxFirstName.LeadingIcon = null;
-            this.textBoxFirstName.Location = new System.Drawing.Point(21, 121);
+            this.textBoxFirstName.Location = new System.Drawing.Point(17, 121);
             this.textBoxFirstName.MaxLength = 32767;
             this.textBoxFirstName.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxFirstName.Name = "textBoxFirstName";
@@ -600,6 +600,92 @@
             this.changePass.Size = new System.Drawing.Size(786, 395);
             this.changePass.TabIndex = 3;
             this.changePass.Text = "Change Password";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(260, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(218, 33);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Change password:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // passConfButton
+            // 
+            this.passConfButton.AutoSize = false;
+            this.passConfButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.passConfButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.passConfButton.Depth = 0;
+            this.passConfButton.HighEmphasis = true;
+            this.passConfButton.Icon = null;
+            this.passConfButton.Location = new System.Drawing.Point(260, 307);
+            this.passConfButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.passConfButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.passConfButton.Name = "passConfButton";
+            this.passConfButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.passConfButton.Size = new System.Drawing.Size(219, 36);
+            this.passConfButton.TabIndex = 3;
+            this.passConfButton.Text = "Confirm Password";
+            this.passConfButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.passConfButton.UseAccentColor = false;
+            this.passConfButton.UseVisualStyleBackColor = true;
+            this.passConfButton.Click += new System.EventHandler(this.passConfButton_Click);
+            // 
+            // passBox3
+            // 
+            this.passBox3.AnimateReadOnly = false;
+            this.passBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passBox3.Depth = 0;
+            this.passBox3.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.passBox3.Hint = "Repeat password";
+            this.passBox3.LeadingIcon = null;
+            this.passBox3.Location = new System.Drawing.Point(260, 238);
+            this.passBox3.MaxLength = 50;
+            this.passBox3.MouseState = MaterialSkin.MouseState.OUT;
+            this.passBox3.Multiline = false;
+            this.passBox3.Name = "passBox3";
+            this.passBox3.Size = new System.Drawing.Size(219, 50);
+            this.passBox3.TabIndex = 2;
+            this.passBox3.Text = "";
+            this.passBox3.TrailingIcon = null;
+            // 
+            // passBox2
+            // 
+            this.passBox2.AnimateReadOnly = false;
+            this.passBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passBox2.Depth = 0;
+            this.passBox2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.passBox2.Hint = "Enter new password";
+            this.passBox2.LeadingIcon = null;
+            this.passBox2.Location = new System.Drawing.Point(260, 165);
+            this.passBox2.MaxLength = 50;
+            this.passBox2.MouseState = MaterialSkin.MouseState.OUT;
+            this.passBox2.Multiline = false;
+            this.passBox2.Name = "passBox2";
+            this.passBox2.Size = new System.Drawing.Size(219, 50);
+            this.passBox2.TabIndex = 1;
+            this.passBox2.Text = "";
+            this.passBox2.TrailingIcon = null;
+            // 
+            // passBox1
+            // 
+            this.passBox1.AnimateReadOnly = false;
+            this.passBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passBox1.Depth = 0;
+            this.passBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.passBox1.Hint = "Enter current password";
+            this.passBox1.LeadingIcon = null;
+            this.passBox1.Location = new System.Drawing.Point(260, 96);
+            this.passBox1.MaxLength = 50;
+            this.passBox1.MouseState = MaterialSkin.MouseState.OUT;
+            this.passBox1.Multiline = false;
+            this.passBox1.Name = "passBox1";
+            this.passBox1.Size = new System.Drawing.Size(219, 50);
+            this.passBox1.TabIndex = 0;
+            this.passBox1.Text = "";
+            this.passBox1.TrailingIcon = null;
             // 
             // imageList1
             // 
@@ -658,92 +744,6 @@
             this.materialCheckbox3.TabIndex = 0;
             this.materialCheckbox3.Text = "materialCheckbox3";
             this.materialCheckbox3.UseVisualStyleBackColor = true;
-            // 
-            // passBox1
-            // 
-            this.passBox1.AnimateReadOnly = false;
-            this.passBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passBox1.Depth = 0;
-            this.passBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.passBox1.Hint = "Enter current password";
-            this.passBox1.LeadingIcon = null;
-            this.passBox1.Location = new System.Drawing.Point(252, 96);
-            this.passBox1.MaxLength = 50;
-            this.passBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.passBox1.Multiline = false;
-            this.passBox1.Name = "passBox1";
-            this.passBox1.Size = new System.Drawing.Size(219, 50);
-            this.passBox1.TabIndex = 0;
-            this.passBox1.Text = "";
-            this.passBox1.TrailingIcon = null;
-            // 
-            // passBox2
-            // 
-            this.passBox2.AnimateReadOnly = false;
-            this.passBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passBox2.Depth = 0;
-            this.passBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.passBox2.Hint = "Enter new password";
-            this.passBox2.LeadingIcon = null;
-            this.passBox2.Location = new System.Drawing.Point(252, 165);
-            this.passBox2.MaxLength = 50;
-            this.passBox2.MouseState = MaterialSkin.MouseState.OUT;
-            this.passBox2.Multiline = false;
-            this.passBox2.Name = "passBox2";
-            this.passBox2.Size = new System.Drawing.Size(219, 50);
-            this.passBox2.TabIndex = 1;
-            this.passBox2.Text = "";
-            this.passBox2.TrailingIcon = null;
-            // 
-            // passBox3
-            // 
-            this.passBox3.AnimateReadOnly = false;
-            this.passBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passBox3.Depth = 0;
-            this.passBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.passBox3.Hint = "Repeat password";
-            this.passBox3.LeadingIcon = null;
-            this.passBox3.Location = new System.Drawing.Point(252, 238);
-            this.passBox3.MaxLength = 50;
-            this.passBox3.MouseState = MaterialSkin.MouseState.OUT;
-            this.passBox3.Multiline = false;
-            this.passBox3.Name = "passBox3";
-            this.passBox3.Size = new System.Drawing.Size(219, 50);
-            this.passBox3.TabIndex = 2;
-            this.passBox3.Text = "";
-            this.passBox3.TrailingIcon = null;
-            // 
-            // passConfButton
-            // 
-            this.passConfButton.AutoSize = false;
-            this.passConfButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.passConfButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.passConfButton.Depth = 0;
-            this.passConfButton.HighEmphasis = true;
-            this.passConfButton.Icon = null;
-            this.passConfButton.Location = new System.Drawing.Point(252, 307);
-            this.passConfButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.passConfButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.passConfButton.Name = "passConfButton";
-            this.passConfButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.passConfButton.Size = new System.Drawing.Size(219, 36);
-            this.passConfButton.TabIndex = 3;
-            this.passConfButton.Text = "Confirm Password";
-            this.passConfButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.passConfButton.UseAccentColor = false;
-            this.passConfButton.UseVisualStyleBackColor = true;
-            this.passConfButton.Click += new System.EventHandler(this.passConfButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(252, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 33);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Change password:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ClientForm
             // 

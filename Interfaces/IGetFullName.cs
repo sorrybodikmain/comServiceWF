@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace comServiceWF.Interfaces
 {
-    internal interface IGetFullName
+    internal interface IGetFullName : IGetId
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

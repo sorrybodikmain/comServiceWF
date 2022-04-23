@@ -1,8 +1,9 @@
-﻿using System;
+﻿using comServiceWF.Interfaces;
+using System;
 
 namespace comServiceWF
 {
-    public abstract class Person
+    public abstract class Person : IGetFullName
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -19,6 +20,11 @@ namespace comServiceWF
         public virtual void Show()
         {
             Console.WriteLine($"ID: {Id}, Fullname: {FullName}");
+        }
+
+        public int getId()
+        {
+            return Id;
         }
     }
 }
