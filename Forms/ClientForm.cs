@@ -4,14 +4,17 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using comServiceWF.Delegates;
 
 namespace comServiceWF
 {
+    
     public partial class ClientForm : MaterialForm
     {
         MyServiceDb myService;
         Client currentClient;
         Credential credential;
+        MyMessageBox md = new MyMessageBox(delegate (string mes) { MessageBox.Show(mes); });
         private void InitializeMaterial()
         {
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
@@ -19,9 +22,9 @@ namespace comServiceWF
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue800,
-                Primary.Blue900,
-                Primary.Blue500,
+                Primary.BlueGrey800,
+                Primary.BlueGrey900,
+                Primary.BlueGrey500,
                 Accent.LightBlue200,
                 TextShade.WHITE
             );
@@ -85,12 +88,12 @@ namespace comServiceWF
         {
             if (checkChanges())
             {
-                MessageBox.Show("No changes detected!");
+                md("No changes detected!");
             }
             else
             {
                 ///save*********************
-                MessageBox.Show("Everything is saved successfully!");
+                md("Everything is saved successfully!");
             }
         }
 
@@ -118,7 +121,7 @@ namespace comServiceWF
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Currently all busy groups try later!");
+                    md("Currently all busy groups try later!");
                     throw;
                 }
             }
@@ -142,7 +145,7 @@ namespace comServiceWF
                 }
                 else
                 {
-                    MaterialMessageBox.Show("New passwords do not match!");
+                    md("Currently all busy groups try later!");
                 }
             }
             else

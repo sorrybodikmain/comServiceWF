@@ -9,6 +9,18 @@ namespace comServiceWF
         public string TypeOfWork { get; set; }
         public DateTime DateOfWorks { get; set; }
         public DateTime DataCreate { get; set; }
+        public string toComplate()
+        {
+            int days = Convert.ToInt32((DateOfWorks - DateTime.Now).TotalDays);
+            if (days > 0)
+            {
+                return $"{days} days";
+            }
+            else
+            {
+                return "Complete";
+            }
+        }
         // navigation properties
         #region navigation properties
         public int ClientId { get; set; }
@@ -20,7 +32,7 @@ namespace comServiceWF
         public string Status { get => status ? "Accepted" : "Rejected"; }
         //delegates
         public void updateStatus() => status = !status;
-        public string toComplate() => (DateOfWorks - DateTime.Now).ToString();
+        public void changeTeamId(int id) => TeamId = id;
         //class constructors
         public Order()
         {

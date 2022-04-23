@@ -4,10 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace comServiceWF.Interfaces
+namespace comServiceWF.Delegates
 {
-    internal interface IGetId
-    {
-        int getId();
-    }
+    delegate void MyMessageBox(string mes);
 }
