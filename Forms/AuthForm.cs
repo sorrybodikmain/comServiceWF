@@ -102,7 +102,7 @@ namespace comServiceWF
 
         private void buttonRes1_Click(object sender, EventArgs e)
         {
-            if (BoxPass1.Text != BoxPass2.Text)
+            if (BoxPass1.Text.Trim() != BoxPass2.Text.Trim())
             {
                 MaterialMessageBox.Show("Passwords do not match!");
             }
@@ -117,9 +117,9 @@ namespace comServiceWF
             if (MessageBox.Show("Are you sure all data is correct?", "Confirmation of registration",
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                myServiceDb.Clients.Add(new Client(FirstNameBox.Text, LastNameBox.Text,
-                    PhoneBox.Text, cityBox.Text, addressBox.Text, regionBox.Text));
-                myServiceDb.Credentials.Add(new Credential(LoginBox.Text, BoxPass1.Text));
+                myServiceDb.Clients.Add(new Client(FirstNameBox.Text.Trim(), LastNameBox.Text.Trim(),
+                    PhoneBox.Text.Trim(), cityBox.Text.Trim(), addressBox.Text.Trim(), regionBox.Text.Trim()));
+                myServiceDb.Credentials.Add(new Credential(LoginBox.Text.Trim(), BoxPass1.Text.Trim()));
                 myServiceDb.SaveChanges();
                 MaterialMessageBox.Show("New registration successful!");
                 hidePanels(1);

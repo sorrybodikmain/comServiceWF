@@ -14,7 +14,7 @@ namespace comServiceWF
         MyServiceDb myService;
         Client currentClient;
         Credential credential;
-        MyMessageBox md = new MyMessageBox(delegate (string mes) { MessageBox.Show(mes); });
+        MyMessageBox md = new MyMessageBox(delegate (string mes) { MaterialMessageBox.Show(mes); });
         private void InitializeMaterial()
         {
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
@@ -145,7 +145,7 @@ namespace comServiceWF
                 }
                 else
                 {
-                    md("Currently all busy groups try later!");
+                    md("New password does not match!");
                 }
             }
             else
