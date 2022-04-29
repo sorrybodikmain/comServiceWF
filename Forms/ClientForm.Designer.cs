@@ -128,7 +128,7 @@
             "Repair",
             "Construction",
             "Assistance"});
-            this.typeComboBox.Location = new System.Drawing.Point(276, 183);
+            this.typeComboBox.Location = new System.Drawing.Point(253, 181);
             this.typeComboBox.MaxDropDownItems = 4;
             this.typeComboBox.MouseState = MaterialSkin.MouseState.OUT;
             this.typeComboBox.Name = "typeComboBox";
@@ -144,7 +144,7 @@
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(276, 241);
+            this.materialButton1.Location = new System.Drawing.Point(253, 239);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
@@ -163,7 +163,7 @@
             this.DatePicker.CustomFormat = "";
             this.DatePicker.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DatePicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DatePicker.Location = new System.Drawing.Point(276, 150);
+            this.DatePicker.Location = new System.Drawing.Point(253, 148);
             this.DatePicker.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
             this.DatePicker.MinDate = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
             this.DatePicker.Name = "DatePicker";
@@ -177,7 +177,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel7.Location = new System.Drawing.Point(276, 97);
+            this.materialLabel7.Location = new System.Drawing.Point(253, 95);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(260, 41);
