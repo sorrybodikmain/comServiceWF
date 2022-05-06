@@ -32,7 +32,7 @@ namespace comServiceWF
         private void PrintInfo()
         {
             //my orders
-            var orders = myService.Orders.Where(o => o.ClientId == currentClient.Id).ToList();
+            var orders = myService.Orders.Where(o => o.ClientId == currentClient.Id).OrderBy(c => c.ClientId);
             foreach (var item in orders)
                 ordersGridView.Rows.Add(item.Id, currentClient.FullName, item.TypeOfWork, item.Status,
                     item.DateOfWorks, item.DataCreate, item.toComplate());
@@ -92,7 +92,13 @@ namespace comServiceWF
             }
             else
             {
-                ///save*********************
+                currentClient.City = textBoxCity.Text;
+                currentClient.StreetFull = textBoxFullAdress.Text;
+                currentClient.Region = textBoxRegion.Text;
+                currentClient.FirstName = textBoxFirstName.Text;
+                currentClient.LastName = textBoxLastName.Text;
+                credential.Login = loginBox.Text;
+                myService.SaveChanges();
                 md("Everything is saved successfully!");
             }
         }

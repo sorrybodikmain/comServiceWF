@@ -68,28 +68,23 @@ namespace comServiceWF
 
         private void buttonSignIn_Click(object sender, EventArgs e)
         {
-            if (BoxAuthLogin.Text != "admin" && BoxAuthPass.Text != "")
+            try
             {
-                try
+                Credential cr = myServiceDb.Credentials.First(c => c.Login == BoxAuthLogin.Text);
+                if (cr != null && cr.Password == BoxAuthPass.Text)
                 {
-                    Credential cr = myServiceDb.Credentials.First(c => c.Login == BoxAuthLogin.Text);
-                    if (cr != null && cr.Password == BoxAuthPass.Text)
-                    {
-                        Client cl = myServiceDb.Clients.First(c => c.Id == cr.ClientId);
-                        this.Hide();
-                        ClientForm clientForm = new ClientForm(myServiceDb, cl, cr);
-                        clientForm.Closed += (s, args) => this.Close();
-                        clientForm.ShowDialog();
-                    }
+                    Client cl = myServiceDb.Clients.First(c => c.Id == cr.ClientId);
+                    this.Hide();
+                    ClientForm clientForm = new ClientForm(myServiceDb, cl, cr);
+                    clientForm.Closed += (s, args) => this.Close();
+                    clientForm.ShowDialog();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Wrong login or password! {ex.Message}");
-                }
+                else
+                    MaterialMessageBox.Show($"Wrong login or password!");
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Admin form in development!");
+                MaterialMessageBox.Show($"Wrong login or password! {ex.Message}");
             }
 
         }
