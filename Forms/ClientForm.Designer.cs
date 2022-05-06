@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientForm));
             this.TabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.CreateOrders = new System.Windows.Forms.TabPage();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.typeComboBox = new MaterialSkin.Controls.MaterialComboBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.DatePicker = new System.Windows.Forms.DateTimePicker();
-            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.Orders = new System.Windows.Forms.TabPage();
             this.ordersGridView = new System.Windows.Forms.DataGridView();
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +61,7 @@
             this.textBoxLastName = new MaterialSkin.Controls.MaterialTextBox2();
             this.textBoxFirstName = new MaterialSkin.Controls.MaterialTextBox2();
             this.changePass = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.passConfButton = new MaterialSkin.Controls.MaterialButton();
             this.passBox3 = new MaterialSkin.Controls.MaterialTextBox();
             this.passBox2 = new MaterialSkin.Controls.MaterialTextBox();
@@ -98,16 +98,29 @@
             // CreateOrders
             // 
             this.CreateOrders.BackColor = System.Drawing.Color.White;
+            this.CreateOrders.Controls.Add(this.materialLabel7);
             this.CreateOrders.Controls.Add(this.typeComboBox);
             this.CreateOrders.Controls.Add(this.materialButton1);
             this.CreateOrders.Controls.Add(this.DatePicker);
-            this.CreateOrders.Controls.Add(this.materialLabel7);
             this.CreateOrders.ImageKey = "plus-box.png";
             this.CreateOrders.Location = new System.Drawing.Point(4, 24);
             this.CreateOrders.Name = "CreateOrders";
             this.CreateOrders.Size = new System.Drawing.Size(786, 395);
             this.CreateOrders.TabIndex = 2;
             this.CreateOrders.Text = "Create order";
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.materialLabel7.Location = new System.Drawing.Point(234, 64);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(261, 85);
+            this.materialLabel7.TabIndex = 4;
+            this.materialLabel7.Text = "Create new order:";
+            this.materialLabel7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // typeComboBox
             // 
@@ -128,11 +141,11 @@
             "Repair",
             "Construction",
             "Assistance"});
-            this.typeComboBox.Location = new System.Drawing.Point(276, 183);
+            this.typeComboBox.Location = new System.Drawing.Point(234, 206);
             this.typeComboBox.MaxDropDownItems = 4;
             this.typeComboBox.MouseState = MaterialSkin.MouseState.OUT;
             this.typeComboBox.Name = "typeComboBox";
-            this.typeComboBox.Size = new System.Drawing.Size(260, 49);
+            this.typeComboBox.Size = new System.Drawing.Size(261, 49);
             this.typeComboBox.StartIndex = 0;
             this.typeComboBox.TabIndex = 3;
             // 
@@ -144,12 +157,12 @@
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(276, 241);
+            this.materialButton1.Location = new System.Drawing.Point(234, 275);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
             this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(260, 36);
+            this.materialButton1.Size = new System.Drawing.Size(261, 36);
             this.materialButton1.TabIndex = 2;
             this.materialButton1.Text = "Confirm";
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -163,26 +176,12 @@
             this.DatePicker.CustomFormat = "";
             this.DatePicker.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DatePicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DatePicker.Location = new System.Drawing.Point(276, 150);
+            this.DatePicker.Location = new System.Drawing.Point(234, 162);
             this.DatePicker.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
             this.DatePicker.MinDate = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
             this.DatePicker.Name = "DatePicker";
-            this.DatePicker.Size = new System.Drawing.Size(260, 27);
+            this.DatePicker.Size = new System.Drawing.Size(261, 27);
             this.DatePicker.TabIndex = 1;
-            // 
-            // materialLabel7
-            // 
-            this.materialLabel7.AutoSize = true;
-            this.materialLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel7.Location = new System.Drawing.Point(276, 97);
-            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(260, 41);
-            this.materialLabel7.TabIndex = 0;
-            this.materialLabel7.Text = "Create new order";
             // 
             // Orders
             // 
@@ -290,7 +289,7 @@
             this.loginBox.HideSelection = true;
             this.loginBox.Hint = "Login";
             this.loginBox.LeadingIcon = null;
-            this.loginBox.Location = new System.Drawing.Point(18, 281);
+            this.loginBox.Location = new System.Drawing.Point(24, 280);
             this.loginBox.MaxLength = 32767;
             this.loginBox.MouseState = MaterialSkin.MouseState.OUT;
             this.loginBox.Name = "loginBox";
@@ -315,7 +314,7 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.materialLabel6.Location = new System.Drawing.Point(505, 14);
+            this.materialLabel6.Location = new System.Drawing.Point(24, 15);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(205, 29);
@@ -329,7 +328,7 @@
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialLabel5.Location = new System.Drawing.Point(18, 357);
+            this.materialLabel5.Location = new System.Drawing.Point(24, 356);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(267, 19);
@@ -343,7 +342,7 @@
             this.buttonSaveChanges.Depth = 0;
             this.buttonSaveChanges.HighEmphasis = true;
             this.buttonSaveChanges.Icon = null;
-            this.buttonSaveChanges.Location = new System.Drawing.Point(582, 340);
+            this.buttonSaveChanges.Location = new System.Drawing.Point(588, 339);
             this.buttonSaveChanges.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonSaveChanges.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonSaveChanges.Name = "buttonSaveChanges";
@@ -363,7 +362,7 @@
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialLabel4.Location = new System.Drawing.Point(18, 241);
+            this.materialLabel4.Location = new System.Drawing.Point(24, 240);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(52, 19);
@@ -380,7 +379,7 @@
             this.textBoxRegion.HideSelection = true;
             this.textBoxRegion.Hint = "Region";
             this.textBoxRegion.LeadingIcon = null;
-            this.textBoxRegion.Location = new System.Drawing.Point(498, 175);
+            this.textBoxRegion.Location = new System.Drawing.Point(504, 174);
             this.textBoxRegion.MaxLength = 32767;
             this.textBoxRegion.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxRegion.Name = "textBoxRegion";
@@ -409,7 +408,7 @@
             this.textBoxCity.HideSelection = true;
             this.textBoxCity.Hint = "City";
             this.textBoxCity.LeadingIcon = null;
-            this.textBoxCity.Location = new System.Drawing.Point(284, 175);
+            this.textBoxCity.Location = new System.Drawing.Point(290, 174);
             this.textBoxCity.MaxLength = 32767;
             this.textBoxCity.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxCity.Name = "textBoxCity";
@@ -438,7 +437,7 @@
             this.textBoxFullAdress.HideSelection = true;
             this.textBoxFullAdress.Hint = "Street Address";
             this.textBoxFullAdress.LeadingIcon = null;
-            this.textBoxFullAdress.Location = new System.Drawing.Point(284, 121);
+            this.textBoxFullAdress.Location = new System.Drawing.Point(290, 120);
             this.textBoxFullAdress.MaxLength = 32767;
             this.textBoxFullAdress.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxFullAdress.Name = "textBoxFullAdress";
@@ -464,7 +463,7 @@
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.materialLabel3.Location = new System.Drawing.Point(284, 80);
+            this.materialLabel3.Location = new System.Drawing.Point(290, 79);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(69, 19);
@@ -481,7 +480,7 @@
             this.textBoxPhone.HideSelection = true;
             this.textBoxPhone.Hint = "(***)***-****";
             this.textBoxPhone.LeadingIcon = null;
-            this.textBoxPhone.Location = new System.Drawing.Point(284, 281);
+            this.textBoxPhone.Location = new System.Drawing.Point(290, 280);
             this.textBoxPhone.MaxLength = 32767;
             this.textBoxPhone.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxPhone.Name = "textBoxPhone";
@@ -507,7 +506,7 @@
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialLabel2.Location = new System.Drawing.Point(284, 241);
+            this.materialLabel2.Location = new System.Drawing.Point(290, 240);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(117, 19);
@@ -521,7 +520,7 @@
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
             this.materialLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialLabel1.Location = new System.Drawing.Point(18, 80);
+            this.materialLabel1.Location = new System.Drawing.Point(24, 79);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(84, 19);
@@ -538,7 +537,7 @@
             this.textBoxLastName.HideSelection = true;
             this.textBoxLastName.Hint = "Last Name";
             this.textBoxLastName.LeadingIcon = null;
-            this.textBoxLastName.Location = new System.Drawing.Point(17, 175);
+            this.textBoxLastName.Location = new System.Drawing.Point(23, 174);
             this.textBoxLastName.MaxLength = 32767;
             this.textBoxLastName.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxLastName.Name = "textBoxLastName";
@@ -567,7 +566,7 @@
             this.textBoxFirstName.HideSelection = true;
             this.textBoxFirstName.Hint = "First Name";
             this.textBoxFirstName.LeadingIcon = null;
-            this.textBoxFirstName.Location = new System.Drawing.Point(17, 121);
+            this.textBoxFirstName.Location = new System.Drawing.Point(23, 120);
             this.textBoxFirstName.MaxLength = 32767;
             this.textBoxFirstName.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxFirstName.Name = "textBoxFirstName";
@@ -589,7 +588,7 @@
             // changePass
             // 
             this.changePass.BackColor = System.Drawing.Color.White;
-            this.changePass.Controls.Add(this.label1);
+            this.changePass.Controls.Add(this.materialLabel8);
             this.changePass.Controls.Add(this.passConfButton);
             this.changePass.Controls.Add(this.passBox3);
             this.changePass.Controls.Add(this.passBox2);
@@ -601,16 +600,18 @@
             this.changePass.TabIndex = 3;
             this.changePass.Text = "Change Password";
             // 
-            // label1
+            // materialLabel8
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(260, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 33);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Change password:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel8.Location = new System.Drawing.Point(260, 53);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(219, 40);
+            this.materialLabel8.TabIndex = 4;
+            this.materialLabel8.Text = "Change password:";
+            this.materialLabel8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // passConfButton
             // 
@@ -764,13 +765,11 @@
             this.Load += new System.EventHandler(this.ClientForm_Load);
             this.TabControl.ResumeLayout(false);
             this.CreateOrders.ResumeLayout(false);
-            this.CreateOrders.PerformLayout();
             this.Orders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ordersGridView)).EndInit();
             this.InfoEdit.ResumeLayout(false);
             this.InfoEdit.PerformLayout();
             this.changePass.ResumeLayout(false);
-            this.changePass.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -795,7 +794,6 @@
         private MaterialSkin.Controls.MaterialTextBox2 textBoxFirstName;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private System.Windows.Forms.TabPage CreateOrders;
-        private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private System.Windows.Forms.DateTimePicker DatePicker;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckbox1;
@@ -816,10 +814,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn toComplete;
         private MaterialSkin.Controls.MaterialTextBox2 loginBox;
-        private System.Windows.Forms.Label label1;
         private MaterialSkin.Controls.MaterialButton passConfButton;
         private MaterialSkin.Controls.MaterialTextBox passBox3;
         private MaterialSkin.Controls.MaterialTextBox passBox2;
         private MaterialSkin.Controls.MaterialTextBox passBox1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
     }
 }
