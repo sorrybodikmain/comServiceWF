@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ePHrfjXwbRWYTj7cAwMXyxkj45Z2Q9tzELImHicYzzd87lGywpp/dyrLTkuhx53kI3GudPsNfDaFrG3bz/QQNw==",
+  "dgSpecHash": "vx7WnJYE2mxm1dganGt26EOSRpBcym0155e0W8Z8yDEURg4HEnEcMblQUrOX4pLuPHCOsTKlcBItEVCot+83Aw==",
   "success": true,
   "projectFilePath": "C:\\Users\\BOGDAN\\source\\repos\\comServiceWF\\comServiceWF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BOGDAN\\.nuget\\packages\\materialskin.2\\2.3.1\\materialskin.2.2.3.1.nupkg.sha512",
-    "C:\\Users\\BOGDAN\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.10\\microsoft.entityframeworkcore.5.0.10.nupkg.sha512",
-    "C:\\Users\\BOGDAN\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.10\\microsoft.entityframeworkcore.abstractions.5.0.10.nupkg.sha512",
-    "C:\\Users\\BOGDAN\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.10\\microsoft.entityframeworkcore.analyzers.5.0.10.nupkg.sha512",
+    "C:\\Users\\BOGDAN\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.16\\microsoft.entityframeworkcore.5.0.16.nupkg.sha512",
+    "C:\\Users\\BOGDAN\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.16\\microsoft.entityframeworkcore.abstractions.5.0.16.nupkg.sha512",
+    "C:\\Users\\BOGDAN\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.16\\microsoft.entityframeworkcore.analyzers.5.0.16.nupkg.sha512",
     "C:\\Users\\BOGDAN\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.10\\microsoft.entityframeworkcore.relational.5.0.10.nupkg.sha512",
     "C:\\Users\\BOGDAN\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\BOGDAN\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",

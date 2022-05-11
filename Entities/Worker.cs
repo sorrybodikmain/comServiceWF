@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace comServiceWF
 {
     public class Worker : Person
@@ -15,24 +14,20 @@ namespace comServiceWF
                 else salary = 6000;
             }
         }
-        //delegates
-        public void updateSalary(int salary) => this.Salary = salary;
-        public void updateTeamId(int teamId) => this.TeamId = teamId;
         #region navigation prop
         public int TeamId { get; set; }
         public virtual Team Team { get; set; }
         #endregion
+        //delegates
+        public void updateSalary(int salary) => this.Salary = salary;
+        public void updateTeamId(int teamId) => this.TeamId = teamId;
+        
         public Worker() {}
         public Worker(string firstName, string lastName, string phone, int salary, int teamId)
             : base(firstName, lastName, phone)
         {
             TeamId = teamId;
             Salary = salary;
-        }
-        public override void Show()
-        {
-            base.Show();
-            Console.WriteLine($"Salary: {Salary}, TeamId: {TeamId}");
         }
     }
 }

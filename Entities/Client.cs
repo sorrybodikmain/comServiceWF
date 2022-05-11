@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace comServiceWF
 {
@@ -22,12 +21,6 @@ namespace comServiceWF
             this.Region = region;
             this.City = city;
             this.StreetFull = street;
-        }
-        public override void Show()
-        {
-            base.Show();
-            Console.WriteLine("-------Adress------:");
-            Console.WriteLine($"{Region}, {City}, {StreetFull}");
         }
     }
 }

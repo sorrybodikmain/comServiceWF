@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace comServiceWF
 {
@@ -8,15 +7,12 @@ namespace comServiceWF
     {
         //properties
         public int Id { get; set; }
-        public bool status { get; set; }
-        public string Status { get => status ? "working" : "not working"; }
+        public bool Status { get; set; }
+        public string GetStatus { get => Status ? "working" : "not working"; }
+        public void UpdateStatus() => Status = !Status;
         //navigation properties
-        public virtual ICollection<Worker> Workers { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
-        public void show_team()
-        {
-            Console.WriteLine($"team id: {Id} and status: {Status}");
-        }
+        public ICollection<Worker> Workers { get; set; }
+        public ICollection<Order> Orders { get; set; }
         public Team() { }
 
     }

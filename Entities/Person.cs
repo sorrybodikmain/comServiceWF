@@ -17,11 +17,6 @@ namespace comServiceWF
             LastName = lastName;
             Phone = phone;
         }
-        public virtual void Show()
-        {
-            Console.WriteLine($"ID: {Id}, Fullname: {FullName}");
-        }
-
         public int getId()
         {
             return Id;

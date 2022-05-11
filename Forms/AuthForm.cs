@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using comServiceWF.Forms;
 //materialskin2
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Microsoft.EntityFrameworkCore;
 //-------------
 namespace comServiceWF
 {
     public partial class AuthForm : MaterialForm
     {
         MyServiceDb myServiceDb = new MyServiceDb();
-        void InitializeMaterial()
+        public static void InitializeMaterial()
         {
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -28,7 +30,7 @@ namespace comServiceWF
             InitializeMaterial();
 
         }
-        void hidePanels(int u)
+        private void hidePanels(int u)
         {
             switch (u)
             {
@@ -56,8 +58,8 @@ namespace comServiceWF
         {
             hidePanels(1);
             ///// test values ///////
-            BoxAuthLogin.Text = "dtick0";
-            BoxAuthPass.Text = "rlQGiz9l";
+            BoxAuthLogin.Text = "admin";
+            BoxAuthPass.Text = "admin";
 
         }
 
@@ -70,14 +72,25 @@ namespace comServiceWF
         {
             try
             {
-                Credential cr = myServiceDb.Credentials.First(c => c.Login == BoxAuthLogin.Text);
-                if (cr != null && cr.Password == BoxAuthPass.Text)
+                Credential  credential = myServiceDb.Credentials.First(c => c.Login == BoxAuthLogin.Text);
+                if (credential != null && credential.Password == BoxAuthPass.Text)
                 {
-                    Client cl = myServiceDb.Clients.First(c => c.Id == cr.ClientId);
-                    this.Hide();
-                    ClientForm clientForm = new ClientForm(myServiceDb, cl, cr);
-                    clientForm.Closed += (s, args) => this.Close();
-                    clientForm.ShowDialog();
+                    
+                    if (credential.Login != "admin")
+                    {
+                        Client client = myServiceDb.Clients.Include(x => x.Orders).First(c => c.Id == credential.ClientId);
+                        this.Hide();
+                        ClientForm clientForm = new ClientForm(myServiceDb, client, credential);
+                        clientForm.Closed += (s, args) => this.Close();
+                        clientForm.ShowDialog();
+                    }
+                    else
+                    {
+                        this.Hide();
+                        AdminForm adminForm = new AdminForm();
+                        adminForm.Closed += (s, args) => this.Close();
+                        adminForm.ShowDialog();
+                    }
                 }
                 else
                     MaterialMessageBox.Show($"Wrong login or password!");
@@ -112,9 +125,11 @@ namespace comServiceWF
             if (MessageBox.Show("Are you sure all data is correct?", "Confirmation of registration",
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                myServiceDb.Clients.Add(new Client(FirstNameBox.Text.Trim(), LastNameBox.Text.Trim(),
-                    PhoneBox.Text.Trim(), cityBox.Text.Trim(), addressBox.Text.Trim(), regionBox.Text.Trim()));
-                myServiceDb.Credentials.Add(new Credential(LoginBox.Text.Trim(), BoxPass1.Text.Trim()));
+                myServiceDb.Clients.Add(new Client(FirstNameBox.Text, LastNameBox.Text,
+                    PhoneBox.Text, cityBox.Text, addressBox.Text, regionBox.Text));
+                myServiceDb.SaveChanges();
+                myServiceDb.Credentials.Add(new Credential(LoginBox.Text, BoxPass1.Text, myServiceDb.
+                    Clients.First(c => c.Phone == PhoneBox.Text.Trim()).Id));
                 myServiceDb.SaveChanges();
                 MaterialMessageBox.Show("New registration successful!");
                 hidePanels(1);

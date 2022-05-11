@@ -5,7 +5,7 @@ namespace comServiceWF
     public class Order
     {
         public int Id { get; set; }
-        public bool status { get; set; }
+        public bool Status { get; set; }
         public string TypeOfWork { get; set; }
         public DateTime DateOfWorks { get; set; }
         public DateTime DataCreate { get; set; }
@@ -29,9 +29,9 @@ namespace comServiceWF
         public virtual Team? Team { get; set; }
         #endregion
         //readonly prop
-        public string Status { get => status ? "Accepted" : "Rejected"; }
+        public string GetStatus { get => Status ? "Accepted" : "Rejected"; }
         //delegates
-        public void updateStatus() => status = !status;
+        public void updateStatus() => Status = !Status;
         public void changeTeamId(int id) => TeamId = id;
         //class constructors
         public Order()

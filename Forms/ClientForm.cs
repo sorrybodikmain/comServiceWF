@@ -4,7 +4,6 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using comServiceWF.Delegates;
 
 namespace comServiceWF
 {
@@ -14,30 +13,15 @@ namespace comServiceWF
         MyServiceDb myService;
         Client currentClient;
         Credential credential;
-        MyMessageBox md = new MyMessageBox(delegate (string mes) { MaterialMessageBox.Show(mes); });
-        private void InitializeMaterial()
-        {
-            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.EnforceBackcolorOnAllComponents = true;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.BlueGrey800,
-                Primary.BlueGrey900,
-                Primary.BlueGrey500,
-                Accent.LightBlue200,
-                TextShade.WHITE
-            );
-        }
-
         private void PrintInfo()
         {
             //my orders
-            var orders = myService.Orders.Where(o => o.ClientId == currentClient.Id).OrderBy(c => c.ClientId);
-            foreach (var item in orders)
-                ordersGridView.Rows.Add(item.Id, currentClient.FullName, item.TypeOfWork, item.Status,
-                    item.DateOfWorks, item.DataCreate, item.toComplate());
-            ///about me
+            if (currentClient.Orders.Count>0)
+            {
+                foreach (var item in currentClient.Orders.OrderBy(o=>o.Id))
+                    ordersGridView.Rows.Add(item.Id, currentClient.FullName, item.TypeOfWork, item.Status,
+                        item.DateOfWorks, item.DataCreate, item.toComplate());
+            }///about me
             textBoxFirstName.Text = currentClient.FirstName;
             textBoxLastName.Text = currentClient.LastName;
             textBoxPhone.Text = currentClient.Phone;
@@ -79,7 +63,7 @@ namespace comServiceWF
         public ClientForm(MyServiceDb myServiceDb, Client client, Credential credential)
         {
             InitializeComponent();
-            InitializeMaterial();
+            AuthForm.InitializeMaterial();
             this.myService = myServiceDb;
             this.currentClient = client;
             this.credential = credential;
@@ -89,7 +73,7 @@ namespace comServiceWF
         {
             if (checkChanges())
             {
-                md("No changes detected!");
+                MaterialMessageBox.Show("No changes detected!");
             }
             else
             {
@@ -98,9 +82,10 @@ namespace comServiceWF
                 currentClient.Region = textBoxRegion.Text;
                 currentClient.FirstName = textBoxFirstName.Text;
                 currentClient.LastName = textBoxLastName.Text;
+                currentClient.Phone = textBoxPhone.Text;
                 credential.Login = loginBox.Text;
                 myService.SaveChanges();
-                md("Everything is saved successfully!");
+                MaterialMessageBox.Show("Everything is saved successfully!");
             }
         }
 
@@ -116,20 +101,21 @@ namespace comServiceWF
             {
                 try
                 {
-                    Team team = myService.Teams.First(t => t.status == false);
+                    Team team = myService.Teams.FirstOrDefault(t => t.Status == false);
                     if (team != null)
                     {
                         myService.Orders.Add(new Order(currentClient.Id, team.Id, DatePicker.Value,
                             typeComboBox.SelectedItem.ToString()));
-                        team.status = true;
+                        team.UpdateStatus();
                         myService.SaveChanges();
                         MaterialMessageBox.Show("Everything is saved successfully!");
                     }
+                    else
+                        MaterialMessageBox.Show("Currently all busy groups try later!");
                 }
                 catch (Exception)
                 {
-                    md("Currently all busy groups try later!");
-                    throw;
+                    MaterialMessageBox.Show("Currently all busy groups try later!");
                 }
             }
         }
@@ -149,10 +135,11 @@ namespace comServiceWF
                     credential.Password = passBox2.Text.Trim();
                     myService.SaveChanges();
                     clearPassBoxes();
+                    MaterialMessageBox.Show("New password save!");
                 }
                 else
                 {
-                    md("New password does not match!");
+                    MaterialMessageBox.Show("New password does not match!");
                 }
             }
             else
