@@ -8,7 +8,7 @@ namespace comServiceWF
     {
         public MyServiceDb() { 
             //this.Database.EnsureDeleted();
-            this.Database.EnsureCreated();
+            //this.Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -43,12 +43,13 @@ namespace comServiceWF
             modelBuilder.Entity<Credential>().Property(c => c.Password).IsRequired().HasMaxLength(20);
             //order
             modelBuilder.Entity<Order>().HasKey(o => o.Id);
+            //modelBuilder.Entity<Order>().Property(o => o.DateOfWorks).HasColumnType("TIMESTAMP");
+            //modelBuilder.Entity<Order>().Property(o => o.DataCreate).HasColumnType("TIMESTAMP").HasDefaultValueSql("CURRENT_TIMESTAMP");
             modelBuilder.Entity<Order>().Property(o=>o.TypeOfWork).HasMaxLength(20);
             modelBuilder.Entity<Order>().HasOne(c=>c.Client).WithMany(o => o.Orders)
                                                                 .OnDelete(DeleteBehavior.Cascade);
             //team
             modelBuilder.Entity<Team>().HasKey(t => t.Id);
-            modelBuilder.Entity<Team>().Ignore(t => t.Status);
             modelBuilder.Entity<Team>().HasMany(t=>t.Workers).WithOne(w=>w.Team)
                                                                     .OnDelete(DeleteBehavior.Cascade);
             //worker

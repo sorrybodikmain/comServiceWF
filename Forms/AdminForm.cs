@@ -62,6 +62,15 @@ namespace comServiceWF.Forms
         {
             return Convert.ToInt32(dataGrid.Rows[dataGrid.SelectedRows[0].Index].Cells[0].Value);
         }
+        private void AddWorker(int ID)
+        {
+            MyServiceDb myServiceDb = new MyServiceDb();
+            myServiceDb.Workers.Add(new Worker(boxFirstName.Text, boxLastName.Text, boxPhone.Text,
+                                                Convert.ToInt32(boxSalary.Text), ID));
+            boxFirstName.Text = ""; boxPhone.Text = ""; boxLastName.Text = ""; boxSalary.Text = "";
+            myServiceDb.SaveChanges();
+            MaterialMessageBox.Show("All saved");
+        }
         private void PrintClient()
         {
             boxClientFirstName.Text = currentClient.FirstName;
@@ -115,22 +124,32 @@ namespace comServiceWF.Forms
                 DeleteTeam(GetIdWithTable(dataGridView2));
             }
             else
+            {
                 MaterialMessageBox.Show("Please select one team row!");
+            }
         }
 
         private void addWorkerButton_Click(object sender, EventArgs e)
         {
-            if (dataGridView2.Rows.GetRowCount(DataGridViewElementStates.Selected) == 1)
+            MyServiceDb myServiceDb = new MyServiceDb();
+            if (myServiceDb.Teams.Count() != 0)
             {
-                MyServiceDb myServiceDb = new MyServiceDb();
-                myServiceDb.Workers.Add(new Worker(boxFirstName.Text, boxLastName.Text, boxPhone.Text,
-                                                    Convert.ToInt32(boxSalary.Text), GetIdWithTable(dataGridView2)));
-                boxFirstName.Text = ""; boxPhone.Text = ""; boxLastName.Text = ""; boxSalary.Text = "";
-                myServiceDb.SaveChanges();
-                MaterialMessageBox.Show("All saved");
+                if (dataGridView2.Rows.GetRowCount(DataGridViewElementStates.Selected) == 1)
+                {
+                    AddWorker(GetIdWithTable(dataGridView2));
+                }
+                else
+                {
+                    MaterialMessageBox.Show("No selected rows!");
+                }
             }
             else
-                MaterialMessageBox.Show("Please select one team row!");
+            {
+                myServiceDb.Teams.Add(new Team());
+                myServiceDb.SaveChanges();
+                dataGridView2.Rows.Add(1, "Not working");
+                AddWorker(1);
+            }
         }
 
         private void materialButton2_Click(object sender, EventArgs e)
@@ -192,7 +211,7 @@ namespace comServiceWF.Forms
                 Order? order = myServiceDb.Orders.FirstOrDefault(o => o.Id == GetIdWithTable(dataGridView3));
                 if (order != null)
                 {
-                    int TeamId = Convert.ToInt32(Interaction.InputBox("Enter TeamId:","TeamId"));
+                    int TeamId = Convert.ToInt32(Interaction.InputBox("Enter TeamId:", "TeamId"));
                     Team? team = myServiceDb.Teams.FirstOrDefault(t => t.Id == TeamId);
                     if (team != null)
                     {
@@ -211,6 +230,15 @@ namespace comServiceWF.Forms
             {
                 MaterialMessageBox.Show("Please select one order row!");
             }
+        }
+
+        private void addTeamButton_Click(object sender, EventArgs e)
+        {
+            MyServiceDb myServiceDb = new MyServiceDb();
+            myServiceDb.Teams.Add(new Team());
+            myServiceDb.SaveChanges();
+            Team team = myServiceDb.Teams.OrderByDescending(p => p.Id).First();
+            dataGridView2.Rows.Add(team.Id, team.GetStatus);
         }
     }
 }

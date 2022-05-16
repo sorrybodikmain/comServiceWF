@@ -99,9 +99,9 @@ namespace comServiceWF
             if (MessageBox.Show("Are you sure all data is correct?", "Confirmation",
                    MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                try
+                if (myService.Teams.Count(c => c.Status == false) > 0)
                 {
-                    Team team = myService.Teams.FirstOrDefault(t => t.Status == false);
+                    Team team = myService.Teams.First(t => t.Status == false);
                     if (team != null)
                     {
                         myService.Orders.Add(new Order(currentClient.Id, team.Id, DatePicker.Value,
@@ -110,12 +110,10 @@ namespace comServiceWF
                         myService.SaveChanges();
                         MaterialMessageBox.Show("Everything is saved successfully!");
                     }
-                    else
-                        MaterialMessageBox.Show("Currently all busy groups try later!");
                 }
-                catch (Exception)
+                else
                 {
-                    MaterialMessageBox.Show("Currently all busy groups try later!");
+                    MaterialMessageBox.Show("All teams are busy, try again later!");
                 }
             }
         }

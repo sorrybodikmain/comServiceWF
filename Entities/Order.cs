@@ -31,12 +31,12 @@ namespace comServiceWF
         //readonly prop
         public string GetStatus { get => Status ? "Accepted" : "Rejected"; }
         //delegates
-        public void updateStatus() => Status = !Status;
+        public void UpdateStatus() => Status = !Status;
         public void changeTeamId(int id) => TeamId = id;
         //class constructors
         public Order()
         {
-            this.updateStatus();
+            this.UpdateStatus();
         }
         public Order(int clientId, int teamId, DateTime dateTime, string type) : this()
         {

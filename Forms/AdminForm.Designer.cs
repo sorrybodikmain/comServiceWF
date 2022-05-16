@@ -39,6 +39,7 @@
             this.FullAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.tabEditTeams = new System.Windows.Forms.TabPage();
+            this.addTeamButton = new MaterialSkin.Controls.MaterialButton();
             this.addWorkerButton = new MaterialSkin.Controls.MaterialButton();
             this.boxSalary = new MaterialSkin.Controls.MaterialTextBox();
             this.boxPhone = new MaterialSkin.Controls.MaterialTextBox();
@@ -62,7 +63,6 @@
             this.tabEditOrders = new System.Windows.Forms.TabPage();
             this.buttonEditOrders = new MaterialSkin.Controls.MaterialButton();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeOfWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +70,7 @@
             this.dateOfWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toComplete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.TabControl.SuspendLayout();
             this.tabDeleteClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -82,10 +83,10 @@
             // 
             // TabControl
             // 
-            this.TabControl.Controls.Add(this.tabDeleteClients);
+            this.TabControl.Controls.Add(this.tabEditOrders);
             this.TabControl.Controls.Add(this.tabEditTeams);
             this.TabControl.Controls.Add(this.tabEditClients);
-            this.TabControl.Controls.Add(this.tabEditOrders);
+            this.TabControl.Controls.Add(this.tabDeleteClients);
             this.TabControl.Depth = 0;
             this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControl.ImageList = this.imageList1;
@@ -176,6 +177,7 @@
             // tabEditTeams
             // 
             this.tabEditTeams.BackColor = System.Drawing.Color.White;
+            this.tabEditTeams.Controls.Add(this.addTeamButton);
             this.tabEditTeams.Controls.Add(this.addWorkerButton);
             this.tabEditTeams.Controls.Add(this.boxSalary);
             this.tabEditTeams.Controls.Add(this.boxPhone);
@@ -190,6 +192,27 @@
             this.tabEditTeams.Size = new System.Drawing.Size(786, 392);
             this.tabEditTeams.TabIndex = 2;
             this.tabEditTeams.Text = "Teams";
+            // 
+            // addTeamButton
+            // 
+            this.addTeamButton.AutoSize = false;
+            this.addTeamButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.addTeamButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.addTeamButton.Depth = 0;
+            this.addTeamButton.HighEmphasis = true;
+            this.addTeamButton.Icon = null;
+            this.addTeamButton.Location = new System.Drawing.Point(44, 358);
+            this.addTeamButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.addTeamButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.addTeamButton.Name = "addTeamButton";
+            this.addTeamButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.addTeamButton.Size = new System.Drawing.Size(268, 28);
+            this.addTeamButton.TabIndex = 8;
+            this.addTeamButton.Text = "Add Team";
+            this.addTeamButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.addTeamButton.UseAccentColor = false;
+            this.addTeamButton.UseVisualStyleBackColor = true;
+            this.addTeamButton.Click += new System.EventHandler(this.addTeamButton_Click);
             // 
             // addWorkerButton
             // 
@@ -305,12 +328,12 @@
             this.deleteTeamButton.Depth = 0;
             this.deleteTeamButton.HighEmphasis = true;
             this.deleteTeamButton.Icon = null;
-            this.deleteTeamButton.Location = new System.Drawing.Point(44, 343);
+            this.deleteTeamButton.Location = new System.Drawing.Point(44, 324);
             this.deleteTeamButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.deleteTeamButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.deleteTeamButton.Name = "deleteTeamButton";
             this.deleteTeamButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.deleteTeamButton.Size = new System.Drawing.Size(268, 36);
+            this.deleteTeamButton.Size = new System.Drawing.Size(268, 28);
             this.deleteTeamButton.TabIndex = 1;
             this.deleteTeamButton.Text = "Team Delete";
             this.deleteTeamButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -330,7 +353,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(268, 310);
+            this.dataGridView2.Size = new System.Drawing.Size(268, 301);
             this.dataGridView2.TabIndex = 0;
             // 
             // Id
@@ -667,16 +690,6 @@
             this.dataGridView3.Size = new System.Drawing.Size(786, 360);
             this.dataGridView3.TabIndex = 1;
             // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "account-group.png");
-            this.imageList1.Images.SetKeyName(1, "account-hard-hat.png");
-            this.imageList1.Images.SetKeyName(2, "account-star.png");
-            this.imageList1.Images.SetKeyName(3, "listIcon.png");
-            // 
             // OrderId
             // 
             this.OrderId.HeaderText = "ID";
@@ -717,6 +730,16 @@
             // 
             this.toComplete.HeaderText = "To Complete";
             this.toComplete.Name = "toComplete";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "account-group.png");
+            this.imageList1.Images.SetKeyName(1, "account-hard-hat.png");
+            this.imageList1.Images.SetKeyName(2, "account-star.png");
+            this.imageList1.Images.SetKeyName(3, "listIcon.png");
             // 
             // AdminForm
             // 
@@ -789,5 +812,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateOfWork;
         private System.Windows.Forms.DataGridViewTextBoxColumn createDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn toComplete;
+        private MaterialSkin.Controls.MaterialButton addTeamButton;
     }
 }

@@ -36,3 +36,5 @@ C:\Users\BOGDAN\source\repos\comServiceWF\obj\Debug\net5.0-windows\comServiceWF.
 C:\Users\BOGDAN\source\repos\comServiceWF\bin\Debug\net5.0-windows\MySqlConnector.dll
 C:\Users\BOGDAN\source\repos\comServiceWF\bin\Debug\net5.0-windows\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\BOGDAN\source\repos\comServiceWF\obj\Debug\net5.0-windows\comServiceWF.Forms.AdminForm.resources
+C:\Users\BOGDAN\source\repos\comServiceWF\bin\Debug\net5.0-windows\Humanizer.dll
+C:\Users\BOGDAN\source\repos\comServiceWF\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Design.dll
