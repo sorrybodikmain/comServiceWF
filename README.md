@@ -1,4 +1,5 @@
 <h1>Housing and communal services</h1>
+<h4>Housing and communal services system. The tenant sends an Application, which indicates the type of work, scale and desired time of execution. The dispatcher forms the appropriate Brigade and registers it in the Work Plan. The Dispatcher may reject the Application if all Brigades are employed.</h4>
 <h2>Auth Form</h2>
 <h3>Sign In</h3>
 <img src="https://user-images.githubusercontent.com/91372052/168661308-bd3af072-06a4-4139-99c5-556f7f4f71ac.png">
